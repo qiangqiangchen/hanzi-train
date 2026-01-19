@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "欢乐农场",
+    "bgImage": "/images/scenes/farm.png",
+    "bgColor": "from-green-200 to-yellow-100",
+    "themeColor": "green",
+    "levels": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "minStars": 0
+  },
+  {
+    "id": 2,
+    "name": "快乐城镇",
+    "bgImage": "/images/scenes/city.png",
+    "bgColor": "from-blue-200 to-indigo-100",
+    "themeColor": "blue",
+    "levels": [11, 12, 13, 14, 15],
+    "minStars": 20
+  },
+  {
+    "id": 3,
+    "name": "星际探索",
+    "bgImage": "/images/scenes/space.png",
+    "bgColor": "from-indigo-900 to-purple-800",
+    "themeColor": "purple",
+    "levels": [16, 17, 18, 19, 20],
+    "minStars": 50
+  }
+]

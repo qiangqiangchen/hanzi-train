@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  height: 100%;
+  overflow: hidden; /* 禁止整个页面滚动 */
+  overscroll-behavior: none; /* 禁止橡皮筋 */
+  background-color: #f0f9ff;
+  font-family: "KaiTi", "STKaiti", "Microsoft YaHei", sans-serif;
+}
+
+#app {
+  height: 100%;
+}
+
+/* 禁止长按选中文本/图片 */
+* {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent; /* 去除移动端点击高亮 */
+  touch-action: manipulation; /* 优化触摸响应 */
+}
+
+/* 允许输入框选中 */
+input {
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+/* 按钮点击反馈优化 */
+button:active {
+  transform: scale(0.95);
+}
+
+/* [Day9] Ripple 动画 */
+span.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  background-color: rgba(255, 255, 255, 0.4); /* 白色半透明 */
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}

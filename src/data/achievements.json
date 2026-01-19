@@ -1,0 +1,37 @@
+[
+  {
+    "id": "first_blood",
+    "name": "识字新星",
+    "desc": "第一次完成关卡挑战",
+    "icon": "first_blood.png",
+    "condition": { "type": "level_pass", "value": 1 }
+  },
+  {
+    "id": "streak_5",
+    "name": "连击达人",
+    "desc": "在游戏中达成 5 连击",
+    "icon": "streak_5.png",
+    "condition": { "type": "streak", "value": 5 }
+  },
+  {
+    "id": "streak_10",
+    "name": "超级连击",
+    "desc": "在游戏中达成 10 连击",
+    "icon": "streak_10.png",
+    "condition": { "type": "streak", "value": 10 }
+  },
+  {
+    "id": "char_10",
+    "name": "好学宝宝",
+    "desc": "累计掌握 10 个汉字",
+    "icon": "char_100.png",
+    "condition": { "type": "master_chars", "value": 10 }
+  },
+  {
+    "id": "train_collector",
+    "name": "火车收藏家",
+    "desc": "拥有 2 辆不同的火车",
+    "icon": "train_master.png",
+    "condition": { "type": "train_count", "value": 2 }
+  }
+]

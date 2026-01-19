@@ -1,0 +1,32 @@
+[
+  {
+    "id": "steam",
+    "name": "小蒸蒸",
+    "desc": "经典的蒸汽机车，冒着白烟出发！",
+    "image": "steam_head.svg",
+    "unlockType": "default",
+    "unlockValue": 0,
+    "color": "bg-red-500",
+    "skill": "无"
+  },
+  {
+    "id": "diesel",
+    "name": "大力号",
+    "desc": "强劲的内燃机车，力气很大。",
+    "image": "diesel_head.svg",
+    "unlockType": "stars",
+    "unlockValue": 20,
+    "color": "bg-blue-500",
+    "skill": "提示"
+  },
+  {
+    "id": "electric",
+    "name": "闪电侠",
+    "desc": "环保的电力机车，速度超快！",
+    "image": "electric_head.svg",
+    "unlockType": "stars",
+    "unlockValue": 50,
+    "color": "bg-yellow-500",
+    "skill": "护盾"
+  }
+]

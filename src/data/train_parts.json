@@ -1,0 +1,38 @@
+[
+  {
+    "id": "coal",
+    "name": "煤水车",
+    "desc": "为蒸汽机车提供动力",
+    "unlockType": "chars",
+    "unlockValue": 50,
+    "color": "bg-gray-700",
+    "icon": "⚫"
+  },
+  {
+    "id": "passenger",
+    "name": "快乐客车",
+    "desc": "载着小朋友去旅行",
+    "unlockType": "chars",
+    "unlockValue": 100,
+    "color": "bg-blue-400",
+    "icon": "💺"
+  },
+  {
+    "id": "cargo",
+    "name": "大力货箱",
+    "desc": "能装很多很多货物",
+    "unlockType": "chars",
+    "unlockValue": 200,
+    "color": "bg-orange-500",
+    "icon": "📦"
+  },
+  {
+    "id": "tank",
+    "name": "油罐车",
+    "desc": "运输神秘的液体",
+    "unlockType": "chars",
+    "unlockValue": 500,
+    "color": "bg-red-600",
+    "icon": "⛽"
+  }
+]

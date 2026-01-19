@@ -1,0 +1,85 @@
+[
+  {
+    "levelId": 1,
+    "chapter": 1,
+    "name": "数字乐园(上)",
+    "description": "认识一到五",
+    "difficulty": { "optionCount": 3 },
+    "targetChars": ["一", "二", "三", "四", "五"]
+  },
+  {
+    "levelId": 2,
+    "chapter": 1,
+    "name": "数字乐园(下)",
+    "description": "认识六到十",
+    "difficulty": { "optionCount": 3 },
+    "targetChars": ["六", "七", "八", "九", "十"]
+  },
+  {
+    "levelId": 3,
+    "chapter": 1,
+    "name": "数字大挑战",
+    "description": "复习所有数字",
+    "difficulty": { 
+        "optionCount": 4,
+        "timeLimit": 10
+    },
+    "targetChars": ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"]
+  },
+  {
+    "levelId": 4,
+    "chapter": 1,
+    "name": "大小多少",
+    "description": "认识对比关系",
+    "difficulty": { "optionCount": 3 },
+    "targetChars": ["大", "小", "多", "少", "人", "口"]
+  },
+  {
+    "levelId": 5,
+    "chapter": 1,
+    "name": "天地日月",
+    "description": "认识自然现象",
+    "difficulty": { "optionCount": 3 },
+    "targetChars": ["天", "地", "日", "月", "水", "火"]
+  },
+  {
+    "levelId": 6,
+    "chapter": 1,
+    "name": "山石田土",
+    "description": "自然风光",
+    "difficulty": { "optionCount": 4 },
+    "targetChars": ["山", "石", "田", "土", "上", "下"]
+  },
+  {
+    "levelId": 7,
+    "chapter": 1,
+    "name": "我的身体",
+    "description": "五官与四肢",
+    "difficulty": { "optionCount": 4 },
+    "targetChars": ["目", "耳", "口", "手", "足", "左", "右"]
+  },
+  {
+    "levelId": 8,
+    "chapter": 1,
+    "name": "快乐家庭(男)",
+    "description": "爸爸爷爷哥哥弟弟",
+    "difficulty": { "optionCount": 4 },
+    "targetChars": ["爸", "爷", "哥", "弟", "男"]
+  },
+  {
+    "levelId": 9,
+    "chapter": 1,
+    "name": "快乐家庭(女)",
+    "description": "妈妈奶奶姐姐妹妹",
+    "difficulty": { "optionCount": 4 },
+    "targetChars": ["妈", "奶", "姐", "妹", "女"]
+  },
+  {
+    "levelId": 10,
+    "chapter": 1,
+    "name": "综合大考验",
+    "description": "第1章总复习",
+    "difficulty": { "optionCount": 5 },
+    "targetChars": ["爸", "妈", "天", "地", "人", "口", "大", "小", "上", "下"]
+  }
+]

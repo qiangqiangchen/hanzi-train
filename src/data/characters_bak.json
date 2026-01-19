@@ -1,0 +1,4118 @@
+[
+  {
+    "id": "h_1000",
+    "char": "的",
+    "pinyin": "de",
+    "tone": 0,
+    "level": 1,
+    "example": "好的",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 1
+  },
+  {
+    "id": "h_1001",
+    "char": "一",
+    "pinyin": "yī",
+    "tone": 1,
+    "level": 1,
+    "example": "一个",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 2
+  },
+  {
+    "id": "h_1002",
+    "char": "是",
+    "pinyin": "shì",
+    "tone": 4,
+    "level": 1,
+    "example": "是的",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 3
+  },
+  {
+    "id": "h_1003",
+    "char": "在",
+    "pinyin": "zài",
+    "tone": 4,
+    "level": 1,
+    "example": "在家",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 4
+  },
+  {
+    "id": "h_1004",
+    "char": "不",
+    "pinyin": "bù",
+    "tone": 4,
+    "level": 1,
+    "example": "不要",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 5
+  },
+  {
+    "id": "h_1005",
+    "char": "了",
+    "pinyin": "le",
+    "tone": 0,
+    "level": 1,
+    "example": "好了",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 6
+  },
+  {
+    "id": "h_1006",
+    "char": "有",
+    "pinyin": "yǒu",
+    "tone": 3,
+    "level": 1,
+    "example": "有人",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 7
+  },
+  {
+    "id": "h_1007",
+    "char": "和",
+    "pinyin": "hé",
+    "tone": 2,
+    "level": 1,
+    "example": "和好",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 8
+  },
+  {
+    "id": "h_1008",
+    "char": "人",
+    "pinyin": "rén",
+    "tone": 2,
+    "level": 1,
+    "example": "大人",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 9
+  },
+  {
+    "id": "h_1009",
+    "char": "这",
+    "pinyin": "zhè",
+    "tone": 4,
+    "level": 1,
+    "example": "这里",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 10
+  },
+  {
+    "id": "h_1010",
+    "char": "中",
+    "pinyin": "zhōng",
+    "tone": 1,
+    "level": 1,
+    "example": "中间",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 11
+  },
+  {
+    "id": "h_1011",
+    "char": "大",
+    "pinyin": "dà",
+    "tone": 4,
+    "level": 1,
+    "example": "大小",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 12
+  },
+  {
+    "id": "h_1012",
+    "char": "为",
+    "pinyin": "wèi",
+    "tone": 4,
+    "level": 1,
+    "example": "因为",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 13
+  },
+  {
+    "id": "h_1013",
+    "char": "上",
+    "pinyin": "shàng",
+    "tone": 4,
+    "level": 1,
+    "example": "上面",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 14
+  },
+  {
+    "id": "h_1014",
+    "char": "个",
+    "pinyin": "gè",
+    "tone": 4,
+    "level": 1,
+    "example": "个子",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 15
+  },
+  {
+    "id": "h_1015",
+    "char": "国",
+    "pinyin": "guó",
+    "tone": 2,
+    "level": 1,
+    "example": "国家",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 16
+  },
+  {
+    "id": "h_1016",
+    "char": "我",
+    "pinyin": "wǒ",
+    "tone": 3,
+    "level": 1,
+    "example": "我们",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 17
+  },
+  {
+    "id": "h_1017",
+    "char": "以",
+    "pinyin": "yǐ",
+    "tone": 3,
+    "level": 1,
+    "example": "以后",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 18
+  },
+  {
+    "id": "h_1018",
+    "char": "要",
+    "pinyin": "yào",
+    "tone": 4,
+    "level": 1,
+    "example": "要是",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 19
+  },
+  {
+    "id": "h_1019",
+    "char": "他",
+    "pinyin": "tā",
+    "tone": 1,
+    "level": 1,
+    "example": "他们",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 20
+  },
+  {
+    "id": "h_1020",
+    "char": "时",
+    "pinyin": "shí",
+    "tone": 2,
+    "level": 1,
+    "example": "时间",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 21
+  },
+  {
+    "id": "h_1021",
+    "char": "来",
+    "pinyin": "lái",
+    "tone": 2,
+    "level": 1,
+    "example": "回来",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 22
+  },
+  {
+    "id": "h_1022",
+    "char": "用",
+    "pinyin": "yòng",
+    "tone": 4,
+    "level": 1,
+    "example": "用品",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 23
+  },
+  {
+    "id": "h_1023",
+    "char": "们",
+    "pinyin": "men",
+    "tone": 0,
+    "level": 1,
+    "example": "咱们",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 24
+  },
+  {
+    "id": "h_1024",
+    "char": "生",
+    "pinyin": "shēng",
+    "tone": 1,
+    "level": 1,
+    "example": "生日",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 25
+  },
+  {
+    "id": "h_1025",
+    "char": "到",
+    "pinyin": "dào",
+    "tone": 4,
+    "level": 1,
+    "example": "到家",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 26
+  },
+  {
+    "id": "h_1026",
+    "char": "作",
+    "pinyin": "zuò",
+    "tone": 4,
+    "level": 1,
+    "example": "作业",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 27
+  },
+  {
+    "id": "h_1027",
+    "char": "地",
+    "pinyin": "dì",
+    "tone": 4,
+    "level": 1,
+    "example": "土地",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 28
+  },
+  {
+    "id": "h_1028",
+    "char": "于",
+    "pinyin": "yú",
+    "tone": 2,
+    "level": 1,
+    "example": "于是",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 29
+  },
+  {
+    "id": "h_1029",
+    "char": "出",
+    "pinyin": "chū",
+    "tone": 1,
+    "level": 1,
+    "example": "出门",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 30
+  },
+  {
+    "id": "h_1030",
+    "char": "就",
+    "pinyin": "jiù",
+    "tone": 4,
+    "level": 1,
+    "example": "就是",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 31
+  },
+  {
+    "id": "h_1031",
+    "char": "分",
+    "pinyin": "fēn",
+    "tone": 1,
+    "level": 1,
+    "example": "分开",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 32
+  },
+  {
+    "id": "h_1032",
+    "char": "对",
+    "pinyin": "duì",
+    "tone": 4,
+    "level": 1,
+    "example": "对错",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 33
+  },
+  {
+    "id": "h_1033",
+    "char": "成",
+    "pinyin": "chéng",
+    "tone": 2,
+    "level": 1,
+    "example": "成长",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 34
+  },
+  {
+    "id": "h_1034",
+    "char": "会",
+    "pinyin": "huì",
+    "tone": 4,
+    "level": 1,
+    "example": "开会",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 35
+  },
+  {
+    "id": "h_1035",
+    "char": "可",
+    "pinyin": "kě",
+    "tone": 3,
+    "level": 1,
+    "example": "可以",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 36
+  },
+  {
+    "id": "h_1036",
+    "char": "主",
+    "pinyin": "zhǔ",
+    "tone": 3,
+    "level": 1,
+    "example": "主人",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 37
+  },
+  {
+    "id": "h_1037",
+    "char": "发",
+    "pinyin": "fā",
+    "tone": 1,
+    "level": 1,
+    "example": "头发",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 38
+  },
+  {
+    "id": "h_1038",
+    "char": "下",
+    "pinyin": "xià",
+    "tone": 4,
+    "level": 1,
+    "example": "下面",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 39
+  },
+  {
+    "id": "h_1039",
+    "char": "文",
+    "pinyin": "wén",
+    "tone": 2,
+    "level": 1,
+    "example": "文具",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 40
+  },
+  {
+    "id": "h_1040",
+    "char": "化",
+    "pinyin": "huà",
+    "tone": 4,
+    "level": 1,
+    "example": "画画",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 41
+  },
+  {
+    "id": "h_1041",
+    "char": "过",
+    "pinyin": "guò",
+    "tone": 4,
+    "level": 1,
+    "example": "过来",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 42
+  },
+  {
+    "id": "h_1042",
+    "char": "天",
+    "pinyin": "tiān",
+    "tone": 1,
+    "level": 1,
+    "example": "天空",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 43
+  },
+  {
+    "id": "h_1043",
+    "char": "面",
+    "pinyin": "miàn",
+    "tone": 4,
+    "level": 1,
+    "example": "面条",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 44
+  },
+  {
+    "id": "h_1044",
+    "char": "所",
+    "pinyin": "suǒ",
+    "tone": 3,
+    "level": 1,
+    "example": "所以",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 45
+  },
+  {
+    "id": "h_1045",
+    "char": "多",
+    "pinyin": "duō",
+    "tone": 1,
+    "level": 1,
+    "example": "多少",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 46
+  },
+  {
+    "id": "h_1046",
+    "char": "小",
+    "pinyin": "xiǎo",
+    "tone": 3,
+    "level": 1,
+    "example": "小孩",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 47
+  },
+  {
+    "id": "h_1047",
+    "char": "工",
+    "pinyin": "gōng",
+    "tone": 1,
+    "level": 1,
+    "example": "工厂",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 48
+  },
+  {
+    "id": "h_1048",
+    "char": "动",
+    "pinyin": "dòng",
+    "tone": 4,
+    "level": 1,
+    "example": "运动",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 49
+  },
+  {
+    "id": "h_1049",
+    "char": "么",
+    "pinyin": "me",
+    "tone": 0,
+    "level": 1,
+    "example": "什么",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 50
+  },
+  {
+    "id": "h_1050",
+    "char": "才",
+    "pinyin": "cái",
+    "tone": 2,
+    "level": 2,
+    "example": "才能",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 51
+  },
+  {
+    "id": "h_1051",
+    "char": "方",
+    "pinyin": "fāng",
+    "tone": 1,
+    "level": 2,
+    "example": "方向",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 52
+  },
+  {
+    "id": "h_1052",
+    "char": "去",
+    "pinyin": "qù",
+    "tone": 4,
+    "level": 2,
+    "example": "回去",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 53
+  },
+  {
+    "id": "h_1053",
+    "char": "法",
+    "pinyin": "fǎ",
+    "tone": 3,
+    "level": 2,
+    "example": "办法",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 54
+  },
+  {
+    "id": "h_1054",
+    "char": "性",
+    "pinyin": "xìng",
+    "tone": 4,
+    "level": 2,
+    "example": "性格",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 55
+  },
+  {
+    "id": "h_1055",
+    "char": "民",
+    "pinyin": "mín",
+    "tone": 2,
+    "level": 2,
+    "example": "人民",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 56
+  },
+  {
+    "id": "h_1056",
+    "char": "年",
+    "pinyin": "nián",
+    "tone": 2,
+    "level": 2,
+    "example": "新年",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 57
+  },
+  {
+    "id": "h_1057",
+    "char": "得",
+    "pinyin": "dé",
+    "tone": 2,
+    "level": 2,
+    "example": "得到",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 58
+  },
+  {
+    "id": "h_1058",
+    "char": "经",
+    "pinyin": "jīng",
+    "tone": 1,
+    "level": 2,
+    "example": "经过",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 59
+  },
+  {
+    "id": "h_1059",
+    "char": "十",
+    "pinyin": "shí",
+    "tone": 2,
+    "level": 2,
+    "example": "十个",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 60
+  },
+  {
+    "id": "h_1060",
+    "char": "三",
+    "pinyin": "sān",
+    "tone": 1,
+    "level": 2,
+    "example": "三个",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 61
+  },
+  {
+    "id": "h_1061",
+    "char": "之",
+    "pinyin": "zhī",
+    "tone": 1,
+    "level": 2,
+    "example": "之间",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 62
+  },
+  {
+    "id": "h_1062",
+    "char": "进",
+    "pinyin": "jìn",
+    "tone": 4,
+    "level": 2,
+    "example": "进步",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 63
+  },
+  {
+    "id": "h_1063",
+    "char": "着",
+    "pinyin": "zhe",
+    "tone": 0,
+    "level": 2,
+    "example": "看着",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 64
+  },
+  {
+    "id": "h_1064",
+    "char": "等",
+    "pinyin": "děng",
+    "tone": 3,
+    "level": 2,
+    "example": "等待",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 65
+  },
+  {
+    "id": "h_1065",
+    "char": "部",
+    "pinyin": "bù",
+    "tone": 4,
+    "level": 2,
+    "example": "部分",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 66
+  },
+  {
+    "id": "h_1066",
+    "char": "度",
+    "pinyin": "dù",
+    "tone": 4,
+    "level": 2,
+    "example": "温度",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 67
+  },
+  {
+    "id": "h_1067",
+    "char": "家",
+    "pinyin": "jiā",
+    "tone": 1,
+    "level": 2,
+    "example": "家人",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 68
+  },
+  {
+    "id": "h_1068",
+    "char": "电",
+    "pinyin": "diàn",
+    "tone": 4,
+    "level": 2,
+    "example": "闪电",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 69
+  },
+  {
+    "id": "h_1069",
+    "char": "力",
+    "pinyin": "lì",
+    "tone": 4,
+    "level": 2,
+    "example": "力气",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 70
+  },
+  {
+    "id": "h_1070",
+    "char": "里",
+    "pinyin": "lǐ",
+    "tone": 3,
+    "level": 2,
+    "example": "里面",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 71
+  },
+  {
+    "id": "h_1071",
+    "char": "如",
+    "pinyin": "rú",
+    "tone": 2,
+    "level": 2,
+    "example": "如果",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 72
+  },
+  {
+    "id": "h_1072",
+    "char": "水",
+    "pinyin": "shuǐ",
+    "tone": 3,
+    "level": 2,
+    "example": "水果",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 73
+  },
+  {
+    "id": "h_1073",
+    "char": "高",
+    "pinyin": "gāo",
+    "tone": 1,
+    "level": 2,
+    "example": "高低",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 74
+  },
+  {
+    "id": "h_1074",
+    "char": "自",
+    "pinyin": "zì",
+    "tone": 4,
+    "level": 2,
+    "example": "自己",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 75
+  },
+  {
+    "id": "h_1075",
+    "char": "二",
+    "pinyin": "èr",
+    "tone": 4,
+    "level": 2,
+    "example": "二个",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 76
+  },
+  {
+    "id": "h_1076",
+    "char": "理",
+    "pinyin": "lǐ",
+    "tone": 3,
+    "level": 2,
+    "example": "理由",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 77
+  },
+  {
+    "id": "h_1077",
+    "char": "起",
+    "pinyin": "qǐ",
+    "tone": 3,
+    "level": 2,
+    "example": "起床",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 78
+  },
+  {
+    "id": "h_1078",
+    "char": "物",
+    "pinyin": "wù",
+    "tone": 4,
+    "level": 2,
+    "example": "物品",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 79
+  },
+  {
+    "id": "h_1079",
+    "char": "现",
+    "pinyin": "xiàn",
+    "tone": 4,
+    "level": 2,
+    "example": "现在",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 80
+  },
+  {
+    "id": "h_1080",
+    "char": "实",
+    "pinyin": "shí",
+    "tone": 2,
+    "level": 2,
+    "example": "实在",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 81
+  },
+  {
+    "id": "h_1081",
+    "char": "加",
+    "pinyin": "jiā",
+    "tone": 1,
+    "level": 2,
+    "example": "加法",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 82
+  },
+  {
+    "id": "h_1082",
+    "char": "量",
+    "pinyin": "liàng",
+    "tone": 4,
+    "level": 2,
+    "example": "数量",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 83
+  },
+  {
+    "id": "h_1083",
+    "char": "都",
+    "pinyin": "dōu",
+    "tone": 1,
+    "level": 2,
+    "example": "都是",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 84
+  },
+  {
+    "id": "h_1084",
+    "char": "两",
+    "pinyin": "liǎng",
+    "tone": 3,
+    "level": 2,
+    "example": "两个",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 85
+  },
+  {
+    "id": "h_1085",
+    "char": "体",
+    "pinyin": "tǐ",
+    "tone": 3,
+    "level": 2,
+    "example": "身体",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 86
+  },
+  {
+    "id": "h_1086",
+    "char": "制",
+    "pinyin": "zhì",
+    "tone": 4,
+    "level": 2,
+    "example": "制作",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 87
+  },
+  {
+    "id": "h_1087",
+    "char": "机",
+    "pinyin": "jī",
+    "tone": 1,
+    "level": 2,
+    "example": "飞机",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 88
+  },
+  {
+    "id": "h_1088",
+    "char": "当",
+    "pinyin": "dāng",
+    "tone": 1,
+    "level": 2,
+    "example": "当然",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 89
+  },
+  {
+    "id": "h_1089",
+    "char": "使",
+    "pinyin": "shǐ",
+    "tone": 3,
+    "level": 2,
+    "example": "使用",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 90
+  },
+  {
+    "id": "h_1090",
+    "char": "点",
+    "pinyin": "diǎn",
+    "tone": 3,
+    "level": 2,
+    "example": "点心",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 91
+  },
+  {
+    "id": "h_1091",
+    "char": "从",
+    "pinyin": "cóng",
+    "tone": 2,
+    "level": 2,
+    "example": "从前",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 92
+  },
+  {
+    "id": "h_1092",
+    "char": "业",
+    "pinyin": "yè",
+    "tone": 4,
+    "level": 2,
+    "example": "作业",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 93
+  },
+  {
+    "id": "h_1093",
+    "char": "本",
+    "pinyin": "běn",
+    "tone": 3,
+    "level": 2,
+    "example": "本子",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 94
+  },
+  {
+    "id": "h_1094",
+    "char": "把",
+    "pinyin": "bǎ",
+    "tone": 3,
+    "level": 2,
+    "example": "把手",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 95
+  },
+  {
+    "id": "h_1095",
+    "char": "信",
+    "pinyin": "xìn",
+    "tone": 4,
+    "level": 2,
+    "example": "相信",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 96
+  },
+  {
+    "id": "h_1096",
+    "char": "应",
+    "pinyin": "yīng",
+    "tone": 1,
+    "level": 2,
+    "example": "应该",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 97
+  },
+  {
+    "id": "h_1097",
+    "char": "开",
+    "pinyin": "kāi",
+    "tone": 1,
+    "level": 2,
+    "example": "开心",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 98
+  },
+  {
+    "id": "h_1098",
+    "char": "它",
+    "pinyin": "tā",
+    "tone": 1,
+    "level": 2,
+    "example": "它们",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 99
+  },
+  {
+    "id": "h_1099",
+    "char": "头",
+    "pinyin": "tóu",
+    "tone": 2,
+    "level": 2,
+    "example": "头发",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 100
+  },
+  {
+    "id": "h_1100",
+    "char": "又",
+    "pinyin": "yòu",
+    "tone": 4,
+    "level": 2,
+    "example": "又来",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 101
+  },
+  {
+    "id": "h_1101",
+    "char": "被",
+    "pinyin": "bèi",
+    "tone": 4,
+    "level": 2,
+    "example": "被子",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 102
+  },
+  {
+    "id": "h_1102",
+    "char": "身",
+    "pinyin": "shēn",
+    "tone": 1,
+    "level": 2,
+    "example": "身体",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 103
+  },
+  {
+    "id": "h_1103",
+    "char": "形",
+    "pinyin": "xíng",
+    "tone": 2,
+    "level": 2,
+    "example": "形状",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 104
+  },
+  {
+    "id": "h_1104",
+    "char": "常",
+    "pinyin": "cháng",
+    "tone": 2,
+    "level": 2,
+    "example": "经常",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 105
+  },
+  {
+    "id": "h_1105",
+    "char": "已",
+    "pinyin": "yǐ",
+    "tone": 3,
+    "level": 2,
+    "example": "已经",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 106
+  },
+  {
+    "id": "h_1106",
+    "char": "意",
+    "pinyin": "yì",
+    "tone": 4,
+    "level": 2,
+    "example": "意思",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 107
+  },
+  {
+    "id": "h_1107",
+    "char": "也",
+    "pinyin": "yě",
+    "tone": 3,
+    "level": 2,
+    "example": "也好",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 108
+  },
+  {
+    "id": "h_1108",
+    "char": "道",
+    "pinyin": "dào",
+    "tone": 4,
+    "level": 2,
+    "example": "道路",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 109
+  },
+  {
+    "id": "h_1109",
+    "char": "果",
+    "pinyin": "guǒ",
+    "tone": 3,
+    "level": 2,
+    "example": "果实",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 110
+  },
+  {
+    "id": "h_1110",
+    "char": "些",
+    "pinyin": "xiē",
+    "tone": 1,
+    "level": 2,
+    "example": "一些",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 111
+  },
+  {
+    "id": "h_1111",
+    "char": "表",
+    "pinyin": "biǎo",
+    "tone": 3,
+    "level": 2,
+    "example": "手表",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 112
+  },
+  {
+    "id": "h_1112",
+    "char": "系",
+    "pinyin": "xì",
+    "tone": 4,
+    "level": 2,
+    "example": "关系",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 113
+  },
+  {
+    "id": "h_1113",
+    "char": "气",
+    "pinyin": "qì",
+    "tone": 4,
+    "level": 2,
+    "example": "气球",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 114
+  },
+  {
+    "id": "h_1114",
+    "char": "外",
+    "pinyin": "wài",
+    "tone": 4,
+    "level": 2,
+    "example": "外面",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 115
+  },
+  {
+    "id": "h_1115",
+    "char": "行",
+    "pinyin": "xíng",
+    "tone": 2,
+    "level": 2,
+    "example": "行走",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 116
+  },
+  {
+    "id": "h_1116",
+    "char": "心",
+    "pinyin": "xīn",
+    "tone": 1,
+    "level": 2,
+    "example": "心情",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 117
+  },
+  {
+    "id": "h_1117",
+    "char": "样",
+    "pinyin": "yàng",
+    "tone": 4,
+    "level": 2,
+    "example": "样子",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 118
+  },
+  {
+    "id": "h_1118",
+    "char": "干",
+    "pinyin": "gàn",
+    "tone": 4,
+    "level": 2,
+    "example": "干活",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 119
+  },
+  {
+    "id": "h_1119",
+    "char": "教",
+    "pinyin": "jiào",
+    "tone": 4,
+    "level": 2,
+    "example": "教室",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 120
+  },
+  {
+    "id": "h_1120",
+    "char": "西",
+    "pinyin": "xī",
+    "tone": 1,
+    "level": 2,
+    "example": "西瓜",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 121
+  },
+  {
+    "id": "h_1121",
+    "char": "再",
+    "pinyin": "zài",
+    "tone": 4,
+    "level": 2,
+    "example": "再见",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 122
+  },
+  {
+    "id": "h_1122",
+    "char": "然",
+    "pinyin": "rán",
+    "tone": 2,
+    "level": 2,
+    "example": "然后",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 123
+  },
+  {
+    "id": "h_1123",
+    "char": "老",
+    "pinyin": "lǎo",
+    "tone": 3,
+    "level": 2,
+    "example": "老师",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 124
+  },
+  {
+    "id": "h_1124",
+    "char": "只",
+    "pinyin": "zhǐ",
+    "tone": 3,
+    "level": 2,
+    "example": "只有",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 125
+  },
+  {
+    "id": "h_1125",
+    "char": "公",
+    "pinyin": "gōng",
+    "tone": 1,
+    "level": 2,
+    "example": "公园",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 126
+  },
+  {
+    "id": "h_1126",
+    "char": "见",
+    "pinyin": "jiàn",
+    "tone": 4,
+    "level": 2,
+    "example": "看见",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 127
+  },
+  {
+    "id": "h_1127",
+    "char": "情",
+    "pinyin": "qíng",
+    "tone": 2,
+    "level": 2,
+    "example": "心情",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 128
+  },
+  {
+    "id": "h_1128",
+    "char": "指",
+    "pinyin": "zhǐ",
+    "tone": 3,
+    "level": 2,
+    "example": "手指",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 129
+  },
+  {
+    "id": "h_1129",
+    "char": "无",
+    "pinyin": "wú",
+    "tone": 2,
+    "level": 2,
+    "example": "无用",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 130
+  },
+  {
+    "id": "h_1130",
+    "char": "军",
+    "pinyin": "jūn",
+    "tone": 1,
+    "level": 2,
+    "example": "军人",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 131
+  },
+  {
+    "id": "h_1131",
+    "char": "任",
+    "pinyin": "rèn",
+    "tone": 4,
+    "level": 2,
+    "example": "任务",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 132
+  },
+  {
+    "id": "h_1132",
+    "char": "建",
+    "pinyin": "jiàn",
+    "tone": 4,
+    "level": 2,
+    "example": "建设",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 133
+  },
+  {
+    "id": "h_1133",
+    "char": "南",
+    "pinyin": "nán",
+    "tone": 2,
+    "level": 2,
+    "example": "南方",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 134
+  },
+  {
+    "id": "h_1134",
+    "char": "那",
+    "pinyin": "nà",
+    "tone": 4,
+    "level": 2,
+    "example": "那里",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 135
+  },
+  {
+    "id": "h_1135",
+    "char": "及",
+    "pinyin": "jí",
+    "tone": 2,
+    "level": 2,
+    "example": "及时",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 136
+  },
+  {
+    "id": "h_1136",
+    "char": "口",
+    "pinyin": "kǒu",
+    "tone": 3,
+    "level": 2,
+    "example": "口水",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 137
+  },
+  {
+    "id": "h_1137",
+    "char": "论",
+    "pinyin": "lùn",
+    "tone": 4,
+    "level": 2,
+    "example": "讨论",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 138
+  },
+  {
+    "id": "h_1138",
+    "char": "别",
+    "pinyin": "bié",
+    "tone": 2,
+    "level": 2,
+    "example": "别人",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 139
+  },
+  {
+    "id": "h_1139",
+    "char": "给",
+    "pinyin": "gěi",
+    "tone": 3,
+    "level": 2,
+    "example": "给予",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 140
+  },
+  {
+    "id": "h_1140",
+    "char": "结",
+    "pinyin": "jié",
+    "tone": 2,
+    "level": 2,
+    "example": "结果",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 141
+  },
+  {
+    "id": "h_1141",
+    "char": "六",
+    "pinyin": "liù",
+    "tone": 4,
+    "level": 2,
+    "example": "六个",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 142
+  },
+  {
+    "id": "h_1142",
+    "char": "义",
+    "pinyin": "yì",
+    "tone": 4,
+    "level": 2,
+    "example": "意义",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 143
+  },
+  {
+    "id": "h_1143",
+    "char": "打",
+    "pinyin": "dǎ",
+    "tone": 3,
+    "level": 2,
+    "example": "打球",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 144
+  },
+  {
+    "id": "h_1144",
+    "char": "边",
+    "pinyin": "biān",
+    "tone": 1,
+    "level": 2,
+    "example": "旁边",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 145
+  },
+  {
+    "id": "h_1145",
+    "char": "几",
+    "pinyin": "jǐ",
+    "tone": 3,
+    "level": 2,
+    "example": "几个",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 146
+  },
+  {
+    "id": "h_1146",
+    "char": "手",
+    "pinyin": "shǒu",
+    "tone": 3,
+    "level": 2,
+    "example": "手机",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 147
+  },
+  {
+    "id": "h_1147",
+    "char": "看",
+    "pinyin": "kàn",
+    "tone": 4,
+    "level": 2,
+    "example": "看书",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 148
+  },
+  {
+    "id": "h_1148",
+    "char": "少",
+    "pinyin": "shǎo",
+    "tone": 3,
+    "level": 2,
+    "example": "多少",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 149
+  },
+  {
+    "id": "h_1149",
+    "char": "直",
+    "pinyin": "zhí",
+    "tone": 2,
+    "level": 2,
+    "example": "直线",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 150
+  },
+  {
+    "id": "h_1150",
+    "char": "解",
+    "pinyin": "jiě",
+    "tone": 3,
+    "level": 3,
+    "example": "解开",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 151
+  },
+  {
+    "id": "h_1151",
+    "char": "难",
+    "pinyin": "nán",
+    "tone": 2,
+    "level": 3,
+    "example": "难过",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 152
+  },
+  {
+    "id": "h_1152",
+    "char": "活",
+    "pinyin": "huó",
+    "tone": 2,
+    "level": 3,
+    "example": "生活",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 153
+  },
+  {
+    "id": "h_1153",
+    "char": "思",
+    "pinyin": "sī",
+    "tone": 1,
+    "level": 3,
+    "example": "思考",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 154
+  },
+  {
+    "id": "h_1154",
+    "char": "种",
+    "pinyin": "zhǒng",
+    "tone": 3,
+    "level": 3,
+    "example": "种子",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 155
+  },
+  {
+    "id": "h_1155",
+    "char": "切",
+    "pinyin": "qiè",
+    "tone": 4,
+    "level": 3,
+    "example": "切开",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 156
+  },
+  {
+    "id": "h_1156",
+    "char": "全",
+    "pinyin": "quán",
+    "tone": 2,
+    "level": 3,
+    "example": "全部",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 157
+  },
+  {
+    "id": "h_1157",
+    "char": "带",
+    "pinyin": "dài",
+    "tone": 4,
+    "level": 3,
+    "example": "带走",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 158
+  },
+  {
+    "id": "h_1158",
+    "char": "眼",
+    "pinyin": "yǎn",
+    "tone": 3,
+    "level": 3,
+    "example": "眼睛",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 159
+  },
+  {
+    "id": "h_1159",
+    "char": "位",
+    "pinyin": "wèi",
+    "tone": 4,
+    "level": 3,
+    "example": "位置",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 160
+  },
+  {
+    "id": "h_1160",
+    "char": "利",
+    "pinyin": "lì",
+    "tone": 4,
+    "level": 3,
+    "example": "利益",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 161
+  },
+  {
+    "id": "h_1161",
+    "char": "最",
+    "pinyin": "zuì",
+    "tone": 4,
+    "level": 3,
+    "example": "最好",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 162
+  },
+  {
+    "id": "h_1162",
+    "char": "色",
+    "pinyin": "sè",
+    "tone": 4,
+    "level": 3,
+    "example": "颜色",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 163
+  },
+  {
+    "id": "h_1163",
+    "char": "第",
+    "pinyin": "dì",
+    "tone": 4,
+    "level": 3,
+    "example": "第一",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 164
+  },
+  {
+    "id": "h_1164",
+    "char": "月",
+    "pinyin": "yuè",
+    "tone": 4,
+    "level": 3,
+    "example": "月亮",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 165
+  },
+  {
+    "id": "h_1165",
+    "char": "光",
+    "pinyin": "guāng",
+    "tone": 1,
+    "level": 3,
+    "example": "阳光",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 166
+  },
+  {
+    "id": "h_1166",
+    "char": "变",
+    "pinyin": "biàn",
+    "tone": 4,
+    "level": 3,
+    "example": "变化",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 167
+  },
+  {
+    "id": "h_1167",
+    "char": "安",
+    "pinyin": "ān",
+    "tone": 1,
+    "level": 3,
+    "example": "安全",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 168
+  },
+  {
+    "id": "h_1168",
+    "char": "八",
+    "pinyin": "bā",
+    "tone": 1,
+    "level": 3,
+    "example": "八个",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 169
+  },
+  {
+    "id": "h_1169",
+    "char": "支",
+    "pinyin": "zhī",
+    "tone": 1,
+    "level": 3,
+    "example": "支持",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 170
+  },
+  {
+    "id": "h_1170",
+    "char": "报",
+    "pinyin": "bào",
+    "tone": 4,
+    "level": 3,
+    "example": "报纸",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 171
+  },
+  {
+    "id": "h_1171",
+    "char": "空",
+    "pinyin": "kōng",
+    "tone": 1,
+    "level": 3,
+    "example": "空间",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 172
+  },
+  {
+    "id": "h_1172",
+    "char": "计",
+    "pinyin": "jì",
+    "tone": 4,
+    "level": 3,
+    "example": "计算",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 173
+  },
+  {
+    "id": "h_1173",
+    "char": "社",
+    "pinyin": "shè",
+    "tone": 4,
+    "level": 3,
+    "example": "社会",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 174
+  },
+  {
+    "id": "h_1174",
+    "char": "术",
+    "pinyin": "shù",
+    "tone": 4,
+    "level": 3,
+    "example": "美术",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 175
+  },
+  {
+    "id": "h_1175",
+    "char": "采",
+    "pinyin": "cǎi",
+    "tone": 3,
+    "level": 3,
+    "example": "采摘",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 176
+  },
+  {
+    "id": "h_1176",
+    "char": "白",
+    "pinyin": "bái",
+    "tone": 2,
+    "level": 3,
+    "example": "白天",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 177
+  },
+  {
+    "id": "h_1177",
+    "char": "话",
+    "pinyin": "huà",
+    "tone": 4,
+    "level": 3,
+    "example": "说话",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 178
+  },
+  {
+    "id": "h_1178",
+    "char": "正",
+    "pinyin": "zhèng",
+    "tone": 4,
+    "level": 3,
+    "example": "正确",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 179
+  },
+  {
+    "id": "h_1179",
+    "char": "名",
+    "pinyin": "míng",
+    "tone": 2,
+    "level": 3,
+    "example": "名字",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 180
+  },
+  {
+    "id": "h_1180",
+    "char": "务",
+    "pinyin": "wù",
+    "tone": 4,
+    "level": 3,
+    "example": "家务",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 181
+  },
+  {
+    "id": "h_1181",
+    "char": "题",
+    "pinyin": "tí",
+    "tone": 2,
+    "level": 3,
+    "example": "题目",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 182
+  },
+  {
+    "id": "h_1182",
+    "char": "九",
+    "pinyin": "jiǔ",
+    "tone": 3,
+    "level": 3,
+    "example": "九个",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 183
+  },
+  {
+    "id": "h_1183",
+    "char": "通",
+    "pinyin": "tōng",
+    "tone": 1,
+    "level": 3,
+    "example": "通过",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 184
+  },
+  {
+    "id": "h_1184",
+    "char": "林",
+    "pinyin": "lín",
+    "tone": 2,
+    "level": 3,
+    "example": "树林",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 185
+  },
+  {
+    "id": "h_1185",
+    "char": "规",
+    "pinyin": "guī",
+    "tone": 1,
+    "level": 3,
+    "example": "规则",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 186
+  },
+  {
+    "id": "h_1186",
+    "char": "权",
+    "pinyin": "quán",
+    "tone": 2,
+    "level": 3,
+    "example": "权利",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 187
+  },
+  {
+    "id": "h_1187",
+    "char": "问",
+    "pinyin": "wèn",
+    "tone": 4,
+    "level": 3,
+    "example": "问题",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 188
+  },
+  {
+    "id": "h_1188",
+    "char": "相",
+    "pinyin": "xiāng",
+    "tone": 1,
+    "level": 3,
+    "example": "相信",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 189
+  },
+  {
+    "id": "h_1189",
+    "char": "次",
+    "pinyin": "cì",
+    "tone": 4,
+    "level": 3,
+    "example": "次数",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 190
+  },
+  {
+    "id": "h_1190",
+    "char": "好",
+    "pinyin": "hǎo",
+    "tone": 3,
+    "level": 3,
+    "example": "好人",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 191
+  },
+  {
+    "id": "h_1191",
+    "char": "红",
+    "pinyin": "hóng",
+    "tone": 2,
+    "level": 3,
+    "example": "红色",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 192
+  },
+  {
+    "id": "h_1192",
+    "char": "平",
+    "pinyin": "píng",
+    "tone": 2,
+    "level": 3,
+    "example": "平安",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 193
+  },
+  {
+    "id": "h_1193",
+    "char": "百",
+    "pinyin": "bǎi",
+    "tone": 3,
+    "level": 3,
+    "example": "一百",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 194
+  },
+  {
+    "id": "h_1194",
+    "char": "元",
+    "pinyin": "yuán",
+    "tone": 2,
+    "level": 3,
+    "example": "元旦",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 195
+  },
+  {
+    "id": "h_1195",
+    "char": "感",
+    "pinyin": "gǎn",
+    "tone": 3,
+    "level": 3,
+    "example": "感觉",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 196
+  },
+  {
+    "id": "h_1196",
+    "char": "单",
+    "pinyin": "dān",
+    "tone": 1,
+    "level": 3,
+    "example": "单一",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 197
+  },
+  {
+    "id": "h_1197",
+    "char": "路",
+    "pinyin": "lù",
+    "tone": 4,
+    "level": 3,
+    "example": "马路",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 198
+  },
+  {
+    "id": "h_1198",
+    "char": "入",
+    "pinyin": "rù",
+    "tone": 4,
+    "level": 3,
+    "example": "入口",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 199
+  },
+  {
+    "id": "h_1199",
+    "char": "造",
+    "pinyin": "zào",
+    "tone": 4,
+    "level": 3,
+    "example": "制造",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 200
+  },
+  {
+    "id": "h_1200",
+    "char": "准",
+    "pinyin": "zhǔn",
+    "tone": 3,
+    "level": 3,
+    "example": "准备",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 201
+  },
+  {
+    "id": "h_1201",
+    "char": "山",
+    "pinyin": "shān",
+    "tone": 1,
+    "level": 3,
+    "example": "山水",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 202
+  },
+  {
+    "id": "h_1202",
+    "char": "张",
+    "pinyin": "zhāng",
+    "tone": 1,
+    "level": 3,
+    "example": "张开",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 203
+  },
+  {
+    "id": "h_1203",
+    "char": "强",
+    "pinyin": "qiáng",
+    "tone": 2,
+    "level": 3,
+    "example": "强大",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 204
+  },
+  {
+    "id": "h_1204",
+    "char": "放",
+    "pinyin": "fàng",
+    "tone": 4,
+    "level": 3,
+    "example": "放学",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 205
+  },
+  {
+    "id": "h_1205",
+    "char": "至",
+    "pinyin": "zhì",
+    "tone": 4,
+    "level": 3,
+    "example": "至少",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 206
+  },
+  {
+    "id": "h_1206",
+    "char": "设",
+    "pinyin": "shè",
+    "tone": 4,
+    "level": 3,
+    "example": "设置",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 207
+  },
+  {
+    "id": "h_1207",
+    "char": "近",
+    "pinyin": "jìn",
+    "tone": 4,
+    "level": 3,
+    "example": "近处",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 208
+  },
+  {
+    "id": "h_1208",
+    "char": "存",
+    "pinyin": "cún",
+    "tone": 2,
+    "level": 3,
+    "example": "存在",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 209
+  },
+  {
+    "id": "h_1209",
+    "char": "划",
+    "pinyin": "huà",
+    "tone": 4,
+    "level": 3,
+    "example": "划分",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 210
+  },
+  {
+    "id": "h_1210",
+    "char": "清",
+    "pinyin": "qīng",
+    "tone": 1,
+    "level": 3,
+    "example": "清楚",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 211
+  },
+  {
+    "id": "h_1211",
+    "char": "飞",
+    "pinyin": "fēi",
+    "tone": 1,
+    "level": 3,
+    "example": "飞翔",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 212
+  },
+  {
+    "id": "h_1212",
+    "char": "算",
+    "pinyin": "suàn",
+    "tone": 4,
+    "level": 3,
+    "example": "算数",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 213
+  },
+  {
+    "id": "h_1213",
+    "char": "五",
+    "pinyin": "wǔ",
+    "tone": 3,
+    "level": 3,
+    "example": "五个",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 214
+  },
+  {
+    "id": "h_1214",
+    "char": "告",
+    "pinyin": "gào",
+    "tone": 4,
+    "level": 3,
+    "example": "告诉",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 215
+  },
+  {
+    "id": "h_1215",
+    "char": "改",
+    "pinyin": "gǎi",
+    "tone": 3,
+    "level": 3,
+    "example": "改正",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 216
+  },
+  {
+    "id": "h_1216",
+    "char": "爸",
+    "pinyin": "bà",
+    "tone": 4,
+    "level": 3,
+    "example": "爸爸",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 217
+  },
+  {
+    "id": "h_1217",
+    "char": "妈",
+    "pinyin": "mā",
+    "tone": 1,
+    "level": 3,
+    "example": "妈妈",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 218
+  },
+  {
+    "id": "h_1218",
+    "char": "爷",
+    "pinyin": "yé",
+    "tone": 2,
+    "level": 3,
+    "example": "爷爷",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 219
+  },
+  {
+    "id": "h_1219",
+    "char": "奶",
+    "pinyin": "nǎi",
+    "tone": 3,
+    "level": 3,
+    "example": "奶奶",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 220
+  },
+  {
+    "id": "h_1220",
+    "char": "哥",
+    "pinyin": "gē",
+    "tone": 1,
+    "level": 3,
+    "example": "哥哥",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 221
+  },
+  {
+    "id": "h_1221",
+    "char": "弟",
+    "pinyin": "dì",
+    "tone": 4,
+    "level": 3,
+    "example": "弟弟",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 222
+  },
+  {
+    "id": "h_1222",
+    "char": "姐",
+    "pinyin": "jiě",
+    "tone": 3,
+    "level": 3,
+    "example": "姐姐",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 223
+  },
+  {
+    "id": "h_1223",
+    "char": "妹",
+    "pinyin": "mèi",
+    "tone": 4,
+    "level": 3,
+    "example": "妹妹",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 224
+  },
+  {
+    "id": "h_1224",
+    "char": "走",
+    "pinyin": "zǒu",
+    "tone": 3,
+    "level": 3,
+    "example": "走路",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 225
+  },
+  {
+    "id": "h_1225",
+    "char": "跑",
+    "pinyin": "pǎo",
+    "tone": 3,
+    "level": 3,
+    "example": "跑步",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 226
+  },
+  {
+    "id": "h_1226",
+    "char": "跳",
+    "pinyin": "tiào",
+    "tone": 4,
+    "level": 3,
+    "example": "跳绳",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 227
+  },
+  {
+    "id": "h_1227",
+    "char": "笑",
+    "pinyin": "xiào",
+    "tone": 4,
+    "level": 3,
+    "example": "笑容",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 228
+  },
+  {
+    "id": "h_1228",
+    "char": "哭",
+    "pinyin": "kū",
+    "tone": 1,
+    "level": 3,
+    "example": "哭泣",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 229
+  },
+  {
+    "id": "h_1229",
+    "char": "吃",
+    "pinyin": "chī",
+    "tone": 1,
+    "level": 3,
+    "example": "吃饭",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 230
+  },
+  {
+    "id": "h_1230",
+    "char": "喝",
+    "pinyin": "hē",
+    "tone": 1,
+    "level": 3,
+    "example": "喝水",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 231
+  },
+  {
+    "id": "h_1231",
+    "char": "睡",
+    "pinyin": "shuì",
+    "tone": 4,
+    "level": 3,
+    "example": "睡觉",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 232
+  },
+  {
+    "id": "h_1232",
+    "char": "听",
+    "pinyin": "tīng",
+    "tone": 1,
+    "level": 3,
+    "example": "听话",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 233
+  },
+  {
+    "id": "h_1233",
+    "char": "读",
+    "pinyin": "dú",
+    "tone": 2,
+    "level": 3,
+    "example": "读书",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 234
+  },
+  {
+    "id": "h_1234",
+    "char": "写",
+    "pinyin": "xiě",
+    "tone": 3,
+    "level": 3,
+    "example": "写字",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 235
+  },
+  {
+    "id": "h_1235",
+    "char": "坐",
+    "pinyin": "zuò",
+    "tone": 4,
+    "level": 3,
+    "example": "坐下",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 236
+  },
+  {
+    "id": "h_1236",
+    "char": "立",
+    "pinyin": "lì",
+    "tone": 4,
+    "level": 3,
+    "example": "立正",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 237
+  },
+  {
+    "id": "h_1237",
+    "char": "早",
+    "pinyin": "zǎo",
+    "tone": 3,
+    "level": 3,
+    "example": "早上",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 238
+  },
+  {
+    "id": "h_1238",
+    "char": "晚",
+    "pinyin": "wǎn",
+    "tone": 3,
+    "level": 3,
+    "example": "晚上",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 239
+  },
+  {
+    "id": "h_1239",
+    "char": "黑",
+    "pinyin": "hēi",
+    "tone": 1,
+    "level": 3,
+    "example": "黑色",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 240
+  },
+  {
+    "id": "h_1240",
+    "char": "长",
+    "pinyin": "zhǎng",
+    "tone": 3,
+    "level": 3,
+    "example": "长大",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 241
+  },
+  {
+    "id": "h_1241",
+    "char": "短",
+    "pinyin": "duǎn",
+    "tone": 3,
+    "level": 3,
+    "example": "长短",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 242
+  },
+  {
+    "id": "h_1242",
+    "char": "矮",
+    "pinyin": "ǎi",
+    "tone": 3,
+    "level": 3,
+    "example": "高矮",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 243
+  },
+  {
+    "id": "h_1243",
+    "char": "胖",
+    "pinyin": "pàng",
+    "tone": 4,
+    "level": 3,
+    "example": "胖子",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 244
+  },
+  {
+    "id": "h_1244",
+    "char": "瘦",
+    "pinyin": "shòu",
+    "tone": 4,
+    "level": 3,
+    "example": "瘦子",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 245
+  },
+  {
+    "id": "h_1245",
+    "char": "美",
+    "pinyin": "měi",
+    "tone": 3,
+    "level": 3,
+    "example": "美丽",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 246
+  },
+  {
+    "id": "h_1246",
+    "char": "丑",
+    "pinyin": "chǒu",
+    "tone": 3,
+    "level": 3,
+    "example": "丑陋",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 247
+  },
+  {
+    "id": "h_1247",
+    "char": "香",
+    "pinyin": "xiāng",
+    "tone": 1,
+    "level": 3,
+    "example": "香味",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 248
+  },
+  {
+    "id": "h_1248",
+    "char": "臭",
+    "pinyin": "chòu",
+    "tone": 4,
+    "level": 3,
+    "example": "臭味",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 249
+  },
+  {
+    "id": "h_1249",
+    "char": "酸",
+    "pinyin": "suān",
+    "tone": 1,
+    "level": 3,
+    "example": "酸甜",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 250
+  },
+  {
+    "id": "h_1250",
+    "char": "甜",
+    "pinyin": "tián",
+    "tone": 2,
+    "level": 3,
+    "example": "甜蜜",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 251
+  },
+  {
+    "id": "h_1251",
+    "char": "苦",
+    "pinyin": "kǔ",
+    "tone": 3,
+    "level": 3,
+    "example": "苦味",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 252
+  },
+  {
+    "id": "h_1252",
+    "char": "辣",
+    "pinyin": "là",
+    "tone": 4,
+    "level": 3,
+    "example": "辣椒",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 253
+  },
+  {
+    "id": "h_1253",
+    "char": "冷",
+    "pinyin": "lěng",
+    "tone": 3,
+    "level": 3,
+    "example": "寒冷",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 254
+  },
+  {
+    "id": "h_1254",
+    "char": "热",
+    "pinyin": "rè",
+    "tone": 4,
+    "level": 3,
+    "example": "热闹",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 255
+  },
+  {
+    "id": "h_1255",
+    "char": "春",
+    "pinyin": "chūn",
+    "tone": 1,
+    "level": 3,
+    "example": "春天",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 256
+  },
+  {
+    "id": "h_1256",
+    "char": "夏",
+    "pinyin": "xià",
+    "tone": 4,
+    "level": 3,
+    "example": "夏天",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 257
+  },
+  {
+    "id": "h_1257",
+    "char": "秋",
+    "pinyin": "qiū",
+    "tone": 1,
+    "level": 3,
+    "example": "秋天",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 258
+  },
+  {
+    "id": "h_1258",
+    "char": "冬",
+    "pinyin": "dōng",
+    "tone": 1,
+    "level": 3,
+    "example": "冬天",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 259
+  },
+  {
+    "id": "h_1259",
+    "char": "风",
+    "pinyin": "fēng",
+    "tone": 1,
+    "level": 3,
+    "example": "风车",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 260
+  },
+  {
+    "id": "h_1260",
+    "char": "雨",
+    "pinyin": "yǔ",
+    "tone": 3,
+    "level": 3,
+    "example": "下雨",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 261
+  },
+  {
+    "id": "h_1261",
+    "char": "雷",
+    "pinyin": "léi",
+    "tone": 2,
+    "level": 3,
+    "example": "雷声",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 262
+  },
+  {
+    "id": "h_1262",
+    "char": "云",
+    "pinyin": "yún",
+    "tone": 2,
+    "level": 3,
+    "example": "云朵",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 263
+  },
+  {
+    "id": "h_1263",
+    "char": "雪",
+    "pinyin": "xuě",
+    "tone": 3,
+    "level": 3,
+    "example": "雪花",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 264
+  },
+  {
+    "id": "h_1264",
+    "char": "霜",
+    "pinyin": "shuāng",
+    "tone": 1,
+    "level": 3,
+    "example": "霜雪",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 265
+  },
+  {
+    "id": "h_1265",
+    "char": "冰",
+    "pinyin": "bīng",
+    "tone": 1,
+    "level": 3,
+    "example": "冰块",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 266
+  },
+  {
+    "id": "h_1266",
+    "char": "江",
+    "pinyin": "jiāng",
+    "tone": 1,
+    "level": 3,
+    "example": "江水",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 267
+  },
+  {
+    "id": "h_1267",
+    "char": "河",
+    "pinyin": "hé",
+    "tone": 2,
+    "level": 3,
+    "example": "河流",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 268
+  },
+  {
+    "id": "h_1268",
+    "char": "湖",
+    "pinyin": "hú",
+    "tone": 2,
+    "level": 3,
+    "example": "湖水",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 269
+  },
+  {
+    "id": "h_1269",
+    "char": "海",
+    "pinyin": "hǎi",
+    "tone": 3,
+    "level": 3,
+    "example": "大海",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 270
+  },
+  {
+    "id": "h_1270",
+    "char": "川",
+    "pinyin": "chuān",
+    "tone": 1,
+    "level": 3,
+    "example": "山川",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 271
+  },
+  {
+    "id": "h_1271",
+    "char": "草",
+    "pinyin": "cǎo",
+    "tone": 3,
+    "level": 3,
+    "example": "草地",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 272
+  },
+  {
+    "id": "h_1272",
+    "char": "木",
+    "pinyin": "mù",
+    "tone": 4,
+    "level": 3,
+    "example": "木头",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 273
+  },
+  {
+    "id": "h_1273",
+    "char": "花",
+    "pinyin": "huā",
+    "tone": 1,
+    "level": 3,
+    "example": "花朵",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 274
+  },
+  {
+    "id": "h_1274",
+    "char": "鸟",
+    "pinyin": "niǎo",
+    "tone": 3,
+    "level": 3,
+    "example": "小鸟",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 275
+  },
+  {
+    "id": "h_1275",
+    "char": "虫",
+    "pinyin": "chóng",
+    "tone": 2,
+    "level": 3,
+    "example": "虫子",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 276
+  },
+  {
+    "id": "h_1276",
+    "char": "鱼",
+    "pinyin": "yú",
+    "tone": 2,
+    "level": 3,
+    "example": "小鱼",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 277
+  },
+  {
+    "id": "h_1277",
+    "char": "牛",
+    "pinyin": "niú",
+    "tone": 2,
+    "level": 3,
+    "example": "牛奶",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 278
+  },
+  {
+    "id": "h_1278",
+    "char": "羊",
+    "pinyin": "yáng",
+    "tone": 2,
+    "level": 3,
+    "example": "小羊",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 279
+  },
+  {
+    "id": "h_1279",
+    "char": "马",
+    "pinyin": "mǎ",
+    "tone": 3,
+    "level": 3,
+    "example": "小马",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 280
+  },
+  {
+    "id": "h_1280",
+    "char": "犬",
+    "pinyin": "quǎn",
+    "tone": 3,
+    "level": 3,
+    "example": "小狗",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 281
+  },
+  {
+    "id": "h_1281",
+    "char": "鸡",
+    "pinyin": "jī",
+    "tone": 1,
+    "level": 3,
+    "example": "小鸡",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 282
+  },
+  {
+    "id": "h_1282",
+    "char": "鸭",
+    "pinyin": "yā",
+    "tone": 1,
+    "level": 3,
+    "example": "鸭子",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 283
+  },
+  {
+    "id": "h_1283",
+    "char": "鹅",
+    "pinyin": "é",
+    "tone": 2,
+    "level": 3,
+    "example": "白鹅",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 284
+  },
+  {
+    "id": "h_1284",
+    "char": "猪",
+    "pinyin": "zhū",
+    "tone": 1,
+    "level": 3,
+    "example": "小猪",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 285
+  },
+  {
+    "id": "h_1285",
+    "char": "龙",
+    "pinyin": "lóng",
+    "tone": 2,
+    "level": 3,
+    "example": "恐龙",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 286
+  },
+  {
+    "id": "h_1286",
+    "char": "虎",
+    "pinyin": "hǔ",
+    "tone": 3,
+    "level": 3,
+    "example": "老虎",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 287
+  },
+  {
+    "id": "h_1287",
+    "char": "狮",
+    "pinyin": "shī",
+    "tone": 1,
+    "level": 3,
+    "example": "狮子",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 288
+  },
+  {
+    "id": "h_1288",
+    "char": "豹",
+    "pinyin": "bào",
+    "tone": 4,
+    "level": 3,
+    "example": "豹子",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 289
+  },
+  {
+    "id": "h_1289",
+    "char": "狼",
+    "pinyin": "láng",
+    "tone": 2,
+    "level": 3,
+    "example": "野狼",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 290
+  },
+  {
+    "id": "h_1290",
+    "char": "象",
+    "pinyin": "xiàng",
+    "tone": 4,
+    "level": 3,
+    "example": "大象",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 291
+  },
+  {
+    "id": "h_1291",
+    "char": "鹿",
+    "pinyin": "lù",
+    "tone": 4,
+    "level": 3,
+    "example": "梅花鹿",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 292
+  },
+  {
+    "id": "h_1292",
+    "char": "熊",
+    "pinyin": "xióng",
+    "tone": 2,
+    "level": 3,
+    "example": "熊猫",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 293
+  },
+  {
+    "id": "h_1293",
+    "char": "猴",
+    "pinyin": "hóu",
+    "tone": 2,
+    "level": 3,
+    "example": "猴子",
+    "confusingChars": {
+      "easy": [],
+      "medium": [],
+      "hard": []
+    },
+    "frequency": 294
+  }
+]
