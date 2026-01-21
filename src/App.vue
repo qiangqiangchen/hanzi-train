@@ -1,9 +1,14 @@
 <template>
   <OrientationCheck />
   <!-- [Day9] 页面转场 -->
+  <!-- <router-view v-slot="{ Component }">
+    <transition name="fade" mode="out-in" >
+      <component :is="Component" :key="$route.path" />
+    </transition>
+  </router-view> -->
   <router-view v-slot="{ Component }">
-    <transition name="fade" mode="out-in">
-      <component :is="Component" />
+    <transition name="fade">
+      <component :is="Component" :key="$route.fullPath" />
     </transition>
   </router-view>
 

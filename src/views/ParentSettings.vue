@@ -3,9 +3,12 @@
         <h2 class="text-xl font-bold mb-4">学习计划管理</h2>
 
         <!-- 添加区 -->
-        <div class="flex gap-2 mb-6">
-            <input v-model="inputChar" placeholder="输入汉字 (如: 赢)" class="border p-2 rounded flex-1" />
-            <button @click="add" class="bg-blue-500 text-white px-4 py-2 rounded">插队学习</button>
+        <div class="flex flex-col md:flex-row gap-3 mb-6 bg-gray-50 p-4 rounded-xl">
+            <input v-model="inputChar" placeholder="输入汉字 (如: 赢)" class="border p-3 rounded-lg text-lg flex-1" />
+            <button @click="add"
+                class="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold shadow-md active:scale-95 transition">
+                插队学习
+            </button>
         </div>
 
         <!-- 列表区 -->
@@ -20,17 +23,15 @@
         <!-- 添加生字 -->
         <div class="mt-8 pt-6 border-t">
             <h3 class="font-bold text-gray-600 mb-4">添加生字 (字库里没有的)</h3>
-            <div class="flex flex-col gap-3">
-                <div class="flex gap-2">
-                    <input v-model="form.char" placeholder="汉字 (如: 赢)" class="border p-2 rounded w-24" maxlength="1" />
-                    <input v-model="form.example" placeholder="组词 (如: 输赢)" class="border p-2 rounded flex-1" />
+            <div class="flex flex-col gap-4">
+                <div class="grid grid-cols-3 gap-2">
+                    <input v-model="form.char" placeholder="字"
+                        class="border p-3 rounded-lg text-center font-bold col-span-1" maxlength="1" />
+                    <input v-model="form.example" placeholder="组词" class="border p-3 rounded-lg col-span-2" />
                 </div>
-                <div class="flex gap-2">
-                    <input v-model="form.distractors" placeholder="干扰项 (用逗号分隔，如: 贝,月,凡)"
-                        class="border p-2 rounded flex-1" />
-                </div>
-                <button @click="addNewChar" class="bg-green-500 text-white px-4 py-2 rounded font-bold"
-                    :disabled="loading">
+                <input v-model="form.distractors" placeholder="干扰项 (逗号分隔)" class="border p-3 rounded-lg w-full" />
+                <button @click="addNewChar"
+                    class="bg-green-500 text-white px-4 py-3 rounded-lg font-bold shadow-md w-full" :disabled="loading">
                     {{ loading ? '生成资源中...' : '保存并添加' }}
                 </button>
             </div>
@@ -64,6 +65,7 @@ import { useUserStore } from '../stores/user';
 import api from '../utils/api';
 
 const userStore = useUserStore();
+const inputChar = ref('');
 const loading = ref(false);
 const form = ref({ char: '', example: '', distractors: '' });
 
@@ -73,32 +75,32 @@ const editDistractors = ref('');
 const currentDistractors = ref([]);
 
 const searchForEdit = async () => {
-  const char = editSearch.value.trim();
-  if (!char) return;
-  
-  // 获取详情
-  const detail = await userStore.getCharDetail(char);
-  if (!detail) {
-      alert('未找到该字，请先添加或去闯关解锁');
-      return;
-  }
-  
-  editingChar.value = detail;
-  // 读取现有干扰项 (优先读 custom，再读默认)
-  // 注意：我们需要在 userStore 里存一个 "用户自定义配置表"
-  // 因为 getCharDetail 返回的是静态文件，不可改。
-  // 所以我们需要在 userStore 新增 customConfigs
-  
-  const customConf = userStore.customConfigs[char] || {};
-  const list = customConf.distractors || detail.confusingChars?.hard || [];
-  currentDistractors.value = list;
-  editDistractors.value = list.join(',');
+    const char = editSearch.value.trim();
+    if (!char) return;
+
+    // 获取详情
+    const detail = await userStore.getCharDetail(char);
+    if (!detail) {
+        alert('未找到该字，请先添加或去闯关解锁');
+        return;
+    }
+
+    editingChar.value = detail;
+    // 读取现有干扰项 (优先读 custom，再读默认)
+    // 注意：我们需要在 userStore 里存一个 "用户自定义配置表"
+    // 因为 getCharDetail 返回的是静态文件，不可改。
+    // 所以我们需要在 userStore 新增 customConfigs
+
+    const customConf = userStore.customConfigs[char] || {};
+    const list = customConf.distractors || detail.confusingChars?.hard || [];
+    currentDistractors.value = list;
+    editDistractors.value = list.join(',');
 };
 
 const saveDistractors = () => {
     if (!editingChar.value) return;
     const list = editDistractors.value.split(/[,，\s]+/).filter(s => s);
-    
+
     userStore.updateCustomConfig(editingChar.value.char, { distractors: list });
     alert('保存成功！下次遇到这个字时，将优先使用这些干扰项。');
     editingChar.value = null;

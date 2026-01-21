@@ -1,28 +1,86 @@
 {
+  "default": {
+    "trigger": "pre",
+    "background": "bg-blue-500",
+    "dialogs": [
+      {
+        "role": "conductor",
+        "name": "列车长",
+        "text": "前面的风景真不错！",
+        "emotion": "happy"
+      },
+      {
+        "role": "conductor",
+        "name": "列车长",
+        "text": "让我们继续收集汉字，加速前进吧！",
+        "emotion": "normal"
+      }
+    ]
+  },
   "1": {
     "trigger": "pre",
     "background": "bg-green-200",
     "dialogs": [
-      { "role": "conductor", "name": "列车长", "text": "你好呀，小小探险家！欢迎来到汉字小火车！", "emotion": "happy" },
-      { "role": "conductor", "name": "列车长", "text": "我是列车长爷爷。我们要驾驶小火车去环游世界。", "emotion": "normal" },
-      { "role": "conductor", "name": "列车长", "text": "但是火车没有燃料了，我们需要收集汉字来作为能量！", "emotion": "worry" },
-      { "role": "conductor", "name": "列车长", "text": "快去第一关试试吧！", "emotion": "happy" }
+      {
+        "role": "conductor",
+        "name": "列车长",
+        "text": "你好呀，小小探险家！欢迎来到汉字小火车！",
+        "emotion": "happy"
+      },
+      {
+        "role": "conductor",
+        "name": "列车长",
+        "text": "我是列车长爷爷。我们要驾驶小火车去环游世界。",
+        "emotion": "normal"
+      },
+      {
+        "role": "conductor",
+        "name": "列车长",
+        "text": "但是火车没有燃料了，我们需要收集汉字来作为能量！",
+        "emotion": "worry"
+      },
+      {
+        "role": "conductor",
+        "name": "列车长",
+        "text": "快去第一关试试吧！",
+        "emotion": "happy"
+      }
     ]
   },
   "11": {
     "trigger": "pre",
     "background": "bg-blue-200",
     "dialogs": [
-      { "role": "conductor", "name": "列车长", "text": "哇！你已经学会了很多字了！", "emotion": "happy" },
-      { "role": "conductor", "name": "列车长", "text": "前面就是快乐城镇了，听说那里有很多商店。", "emotion": "normal" }
+      {
+        "role": "conductor",
+        "name": "列车长",
+        "text": "哇！你已经学会了很多字了！",
+        "emotion": "happy"
+      },
+      {
+        "role": "conductor",
+        "name": "列车长",
+        "text": "前面就是快乐城镇了，听说那里有很多商店。",
+        "emotion": "normal"
+      }
     ]
   },
   "21": {
     "trigger": "pre",
     "background": "bg-purple-900",
     "dialogs": [
-      { "role": "conductor", "name": "列车长", "text": "天呐！我们要飞向太空了吗？", "emotion": "shock" },
-      { "role": "conductor", "name": "列车长", "text": "抓紧扶手，我们要加速了！", "emotion": "happy" }
+      {
+        "role": "conductor",
+        "name": "列车长",
+        "text": "天呐！我们要飞向太空了吗？",
+        "emotion": "shock"
+      },
+      {
+        "role": "conductor",
+        "name": "列车长",
+        "text": "抓紧扶手，我们要加速了！",
+        "emotion": "happy"
+      }
     ]
   }
 }

@@ -22,12 +22,14 @@ export const useUserStore = defineStore('user', {
     skippedChars: [], // ['一', '二'] (家长认为太简单跳过的)
     customCharacters: {},
     customConfigs: {}, // 用户自定义配置 { "人": { distractors: ["入", "八"] } }
+    scenarioCache: {},
     settings: {
       showPinyin: true,
       showHanzi: true,
       bgmVolume: 0.3,
       sfxVolume: 1.0,
-      hasSeenTutorial: false // [Day9]
+      hasSeenTutorial: false, // [Day9]
+      scenarioCache: {}, 
     },
 
     unlockedParts: [],
@@ -64,7 +66,7 @@ export const useUserStore = defineStore('user', {
         const [
             info, progress, characters, history, trains, currentTrainId, 
             achievements, settings, unlockedParts, equippedParts,
-            lastPlayDate, dailyStreak, checkInDates, customConfigs
+            lastPlayDate, dailyStreak, checkInDates, customConfigs, scenarioCache
         ] = await Promise.all([
           db.get('user_info'),
           db.get('user_progress'),
@@ -84,7 +86,8 @@ export const useUserStore = defineStore('user', {
           db.get('user_priority_list'),
           db.get('user_skipped_chars'),
           db.get('user_custom_chars'),
-          db.get('user_custom_configs')
+          db.get('user_custom_configs'),
+          db.get('user_scenario_cache')
         ]);
 
         if (info) this.info = info;
@@ -472,6 +475,10 @@ export const useUserStore = defineStore('user', {
       
       this.save();
     },
+    cacheScenario(levelId, script) {
+      this.scenarioCache[levelId] = script;
+      this.save();
+    },
 
     save() {
         db.set('user_info', this.info);
@@ -492,6 +499,7 @@ export const useUserStore = defineStore('user', {
         db.set('user_skipped_chars', this.skippedChars);
         db.set('user_custom_chars', this.customCharacters);
         db.set('user_custom_configs', this.customConfigs);
+        db.set('user_scenario_cache', this.scenarioCache);
     },
 
     async resetAllData() {

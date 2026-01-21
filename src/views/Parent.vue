@@ -64,7 +64,16 @@
               <LearningChart :history="userStore.history" />
             </div>
           </div>
-
+           <!-- 学习建议 -->
+          <div class="bg-white p-6 rounded-2xl shadow-sm">
+            <h3 class="text-lg font-bold text-gray-600 mb-4 border-l-4 border-green-500 pl-3">学习建议</h3>
+            <p class="text-gray-600 text-sm leading-relaxed" v-if="userStore.statsCount.total < 10">
+              孩子刚刚起步，建议每天坚持玩 10 分钟，多给予口头鼓励。
+            </p>
+            <p class="text-gray-600 text-sm leading-relaxed" v-else>
+              掌握情况非常棒！可以尝试挑战更高难度的关卡。
+            </p>
+          </div>
           <!-- [Day5] 云同步 -->
           <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-100">
             <h3 class="text-lg font-bold text-blue-600 mb-4 flex items-center gap-2">
@@ -114,25 +123,12 @@
               </div>
             </div>
           </div>
+       
 
         </div>
         
         <!-- 右侧 -->
         <div class="space-y-6">
-          
-          <!-- 学习建议 -->
-          <div class="bg-white p-6 rounded-2xl shadow-sm">
-            <h3 class="text-lg font-bold text-gray-600 mb-4 border-l-4 border-green-500 pl-3">学习建议</h3>
-            <p class="text-gray-600 text-sm leading-relaxed" v-if="userStore.statsCount.total < 10">
-              孩子刚刚起步，建议每天坚持玩 10 分钟，多给予口头鼓励。
-            </p>
-            <p class="text-gray-600 text-sm leading-relaxed" v-else>
-              掌握情况非常棒！可以尝试挑战更高难度的关卡。
-            </p>
-          </div>
-
-          
-
           <!-- [Day1] 学习计划干预 -->
           <div class="bg-white p-6 rounded-2xl shadow-sm border border-yellow-100">
             <h3 class="text-lg font-bold text-yellow-600 mb-4 flex items-center gap-2"><span>📅</span> 学习计划干预</h3>

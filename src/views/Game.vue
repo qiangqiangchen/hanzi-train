@@ -47,38 +47,61 @@
           </button>
         </div>
 
-        <div v-if="gameStore.currentQuestion.isWord" class="w-full flex justify-center gap-2 mb-6">
-          <div v-for="(charObj, idx) in gameStore.currentQuestion.targetChars" 
+        <!-- [Day4] 填空槽 -->
+        <div v-if="gameStore.currentQuestion.targetChars && gameStore.currentQuestion.targetChars.length > 1" class="w-full flex justify-center gap-2 mb-4 flex-shrink-0">
+            <div 
+              v-for="(charObj, idx) in gameStore.currentQuestion.targetChars" 
               :key="idx"
-              class="w-16 h-16 rounded-xl border-2 flex items-center justify-center text-4xl font-bold transition-all"
-              :class="[idx < gameStore.currentFillIndex ? 'bg-green-100 border-green-500 text-green-700' : 'bg-white border-gray-300 text-gray-300' ]"
-          >
-              <!-- 显示已填入的字，或者空 -->
+              class="w-12 h-12 md:w-16 md:h-16 rounded-xl border-2 flex items-center justify-center text-2xl md:text-4xl font-bold transition-all bg-white"
+              :class="idx < gameStore.currentFillIndex ? 'bg-green-100 border-green-500 text-green-700' : 'border-gray-300 text-gray-300'"
+            >
               {{ idx < gameStore.currentFillIndex ? charObj.char : '?' }}
-          </div>
+            </div>
         </div>
 
         <!-- 选项区 -->
-        <div class="w-full max-w-5xl flex flex-wrap justify-center items-center content-center gap-2 md:gap-6 px-1 py-10">
+         <div class="w-full max-w-5xl flex flex-wrap justify-center items-center content-center gap-4 md:gap-8 px-2 overflow-y-auto pb-24">
           <button
             v-for="(opt, index) in gameStore.currentQuestion.options"
-            :key="index + '-' + gameStore.currentIndex" 
+            :key="index"
             @click="handleSelect(opt)"
             :disabled="opt.state !== 'normal'"
             :class="[
-              'aspect-square rounded-xl md:rounded-3xl border-b-4 md:border-b-8 flex items-center justify-center font-kaiti transition-all duration-200 shadow-sm relative shrink-0',
-              'w-20 h-20 text-4xl',           
-              'sm:w-24 sm:h-24 sm:text-5xl',  
-              'md:w-32 md:h-32 md:text-7xl', 
+              'aspect-square flex items-center justify-center font-kaiti transition-all duration-200 shadow-md relative shrink-0',
+              'rounded-2xl md:rounded-3xl border-b-[5px] md:border-b-8',
               
-              opt.state === 'normal' ? 'bg-white border-gray-200 active:border-b-0 active:translate-y-1' : '',
+              // [Day6] 动态尺寸控制
+              // 3个: w-28 (手机一行放不下就换行，或者缩小)
+              // 4个: w-24 (手机2x2)
+              // 5个: w-20 (手机3+2)
+              
+              optionsCount <= 4 ? 'w-24 h-24 md:w-40 md:h-40 text-5xl md:text-8xl' : 'w-20 h-20 md:w-32 md:h-32 text-4xl md:text-6xl',
+              
+              opt.state === 'normal' ? 'bg-white border-gray-200 text-gray-700 active:border-b-0 active:translate-y-1' : '',
               opt.state === 'wrong' ? 'bg-gray-100 border-gray-200 text-gray-300' : '',
-              opt.state === 'correct' ? 'bg-yellow-100 border-green-500 text-green-600 z-20 shadow-xl scale-110' : ''
+              opt.state === 'correct' ? 'bg-yellow-50 border-green-500 text-green-600 z-20 shadow-xl scale-110 ring-4 ring-green-200' : ''
             ]"
           >
-            {{ opt.char }}
+            <svg viewBox="0 0 100 100" class="w-full h-full pointer-events-none p-2">
+              <text 
+                x="50" y="50" 
+                font-size="60" 
+                text-anchor="middle" 
+                dominant-baseline="central" 
+                fill="currentColor"
+                class="font-kaiti"
+              >
+                {{ opt.char }}
+              </text>
+            </svg>
           </button>
         </div>
+      </div>
+
+      <!-- Loading 占位 -->
+      <div v-else class="flex-1 flex flex-col items-center justify-center text-gray-500">
+        <div class="text-4xl">🚂</div>
+        <div class="text-sm">准备中...</div>
       </div>
 
       <!-- 技能悬浮按钮 -->
@@ -97,11 +120,11 @@
       <div class="relative z-20 h-16 md:h-36 bg-gray-100/95 border-t-2 md:border-t-4 border-gray-300 flex-shrink-0 flex items-end pb-1 md:pb-6 overflow-hidden shadow-inner">
         <div class="absolute bottom-1 md:bottom-4 w-full h-1 md:h-3 bg-gray-300 border-t border-b border-gray-400"></div>
         <div class="flex flex-row-reverse items-end px-2 gap-0.5 md:gap-2 transform transition-transform duration-500 min-w-full justify-end"
-             :style="{ transform: `translateX(${Math.max(0, (gameStore.collectedCarriages.length + userStore.equippedParts.length) * (windowWidth < 768 ? 42 : 74) - (windowWidth < 768 ? 100 : 300))}px)` }">
+             :style="{ transform: `translateX(${Math.max(0, (gameStore.collectedCarriages.length + (userStore.equippedParts ? userStore.equippedParts.length : 0)) * (windowWidth < 768 ? 42 : 74) - (windowWidth < 768 ? 100 : 300))}px)` }">
           <TrainHead class="z-10 drop-shadow origin-bottom transform scale-[0.55] md:scale-100" />
           
           <TrainPart 
-            v-for="pid in userStore.equippedParts" 
+            v-for="pid in (userStore.equippedParts || [])" 
             :key="pid" 
             :partId="pid" 
             class="origin-bottom transform scale-[0.55] md:scale-100 drop-shadow-sm" 
@@ -123,14 +146,14 @@
       </div>
 
     </div>
-    <TutorialOverlay />
-    <StoryOverlay ref="storyRef" :script="currentStoryScript" @finish="onStoryFinish" />
+
+    <!-- 剧情遮罩 -->
+    <StoryOverlay ref="storyRef" :script="currentStoryScript" @finish="startGameFlow" />
   </div>
-  
 </template>
 
 <script setup>
-import { onMounted, ref, onUnmounted, computed } from 'vue';
+import { onMounted, ref, onUnmounted, computed, nextTick } from 'vue';
 import { useGameStore } from '../stores/game';
 import { useUserStore } from '../stores/user';
 import { useRouter } from 'vue-router';
@@ -140,9 +163,11 @@ import TrainPart from '../components/game/TrainPart.vue';
 import { effects } from '../utils/effects';
 import { preloadImages } from '../utils/preload';
 import { useWindowSize } from '@vueuse/core';
-import TutorialOverlay from '../components/common/TutorialOverlay.vue';
 import StoryOverlay from '../components/common/StoryOverlay.vue';
-import storyData from '../data/story.json';
+import storyDataRaw from '../data/story.json'; // [修复] 重命名避免冲突
+
+// [修复] 确保 storyData 不是 undefined
+const storyData = storyDataRaw || {};
 
 const props = defineProps(['levelId']);
 const gameStore = useGameStore();
@@ -157,38 +182,54 @@ let audioTimer = null;
 const storyRef = ref(null);
 const currentStoryScript = ref(null);
 
+const optionsCount = computed(() => gameStore.currentQuestion?.options.length || 4);
 
 onMounted(async () => {
-  console.log('[Game.vue] onMounted called');
-  // [修复] 检查剧情
-  const story = storyData[props.levelId];
-  if (story && story.trigger === 'pre') {
-      currentStoryScript.value = { ...story, id: props.levelId };
-      storyRef.value.start();
-      // 等待剧情结束回调 startGameFlow
+  // 1. 本地剧情检查
+  // [修复] 增加可选链，防止 storyData[props.levelId] 报错
+  const localStory = storyData[props.levelId];
+  
+  // 2. 初始化关卡
+  const success = await gameStore.initLevel(props.levelId);
+  if (!success) { 
+      isLoading.value = false; 
+      // 简单防死锁：如果初始化失败，回首页
+      console.error('Init level failed');
+      router.replace('/');
       return; 
   }
   
-  // 如果没剧情，直接开始
+  // 3. AI 剧情优先
+  const aiStory = gameStore.currentStoryScript;
+  
+  // [修复] 健壮的合并逻辑
+  const activeStory = aiStory || (localStory && localStory.trigger === 'pre' ? { ...localStory, id: props.levelId } : null);
+
+  if (activeStory) {
+      isLoading.value = false; 
+      currentStoryScript.value = activeStory;
+      await nextTick();
+      if (storyRef.value) storyRef.value.start();
+      return; 
+  }
+  
   startGameFlow();
 });
+
+const startGameFlow = async () => {
+  isLoading.value = false;
+  if (gameStore.currentChapter?.bgImage) {
+    try { await preloadImages([gameStore.currentChapter.bgImage]); } catch(e){}
+  }
+  
+  if (audioTimer) clearTimeout(audioTimer);
+  audioTimer = setTimeout(() => { gameStore.playQuestionAudio(); }, 500);
+};
 
 onUnmounted(() => {
   if (audioTimer) clearTimeout(audioTimer);
   gameStore.exitGame();
 });
-
-const startGameFlow = async () => {
-  console.log('[Game.vue] startGameFlow called, stack:', new Error().stack);
-  const success = await gameStore.initLevel(props.levelId);
-  if (!success) { isLoading.value = false; return; }
-  if (gameStore.currentChapter?.bgImage) {
-    try { await preloadImages([gameStore.currentChapter.bgImage]); } catch(e){}
-  }
-  isLoading.value = false;
-  audioTimer = setTimeout(() => { gameStore.playQuestionAudio(); }, 500);
-};
-
 
 const getTimeBarColor = computed(() => {
   if (gameStore.timeLimit <= 0) return '';
@@ -199,30 +240,12 @@ const getTimeBarColor = computed(() => {
 });
 
 const playAudio = () => gameStore.playQuestionAudio();
-const handleSelect = async (option) => {
+const handleSelect = (option) => {
   const isCorrect = gameStore.submitAnswer(option);
   if (isCorrect) {
-    // 复制对象，防止引用污染
     successChar.value = { ...option };
-    
-    // 2. [修复] 尝试从当前题目获取完整信息 (最快)
-    const q = gameStore.currentQuestion; // 因为选对了，currentQuestion 就是这道题
-    if (q && q.targetChar) {
-        // 合并 targetChar 的信息 (包含 example, pinyin 等)
-        Object.assign(successChar.value, q.targetChar);
-    }
-
-    if (!successChar.value.example) {
-        const detail = await userStore.getCharDetail(option.char);
-        if (detail) {
-            Object.assign(successChar.value, detail);
-        }
-    }
-
-    // 如果选项对象里本身没带拼音 (比如是从干扰项生成的)，尝试补全
-    if (!successChar.value.pinyin) {
-        successChar.value.pinyin = getPinyin(option.char);
-    }
+    // [修复] 拼音获取增加兜底
+    if (!successChar.value.pinyin) successChar.value.pinyin = getPinyin(option.char);
     
     showSuccessModal.value = true;
     if (gameStore.streak > 3) effects.playStreak();
@@ -233,24 +256,17 @@ const handleSelect = async (option) => {
 const getSkillIcon = (type) => type === 'hint' ? '💡' : (type === 'shield' ? '🛡️' : '');
 const triggerSkill = () => gameStore.useSkill();
 
-// [修复] 优先从当前关卡题目中查找拼音
 const getPinyin = (char) => {
-  // 1. 优先检查当前题目队列 (最可靠来源)
-  // 加上 ?. 防止 questions 为空时报错
-  const q = gameStore.questions?.find(q => q.targetChar.char === char);
-  if (q && q.targetChar.pinyin) return q.targetChar.pinyin;
-  
-  // 2. 尝试从 userStore 的详情缓存里找 (Day 1 实现的缓存)
-  // 遍历缓存 values (性能稍低但作为兜底)
+  // [修复] 增加 ?. 防止 questions 为空
+  const q = gameStore.questions?.find(q => q.targetChars.some(c => c.char === char));
+  if (q) {
+      const charObj = q.targetChars.find(c => c.char === char);
+      if (charObj) return charObj.pinyin;
+  }
+  // [修复] 增加 ?. 防止 cache 为空
   const cached = Object.values(userStore.charsDetailCache || {}).find(c => c.char === char);
   if (cached) return cached.pinyin;
-
   return ''; 
-};
-const onStoryFinish = () => {
-    console.log('[Game.vue] onStoryFinish called');
-    // 剧情播完，开始游戏
-    startGameFlow();
 };
 </script>
 

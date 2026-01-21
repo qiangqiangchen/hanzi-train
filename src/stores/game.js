@@ -1,15 +1,17 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import levelsData from '../data/levels.json';
-import charsData from '../data/characters.json'; // 依然保留旧数据用于兼容
+import charsData from '../data/characters.json';
 import chaptersData from '../data/chapters.json';
 import trainsData from '../data/trains.json';
-import charsIndex from '../data/chars_index.json'; // 新索引
+import charsIndex from '../data/chars_index.json';
 import { audio } from '../utils/audio';
 import { preloadAudio } from '../utils/preload';
 import { useUserStore } from './user';
 import { useRouter } from 'vue-router';
 import { effects } from '../utils/effects';
+import storyData from '../data/story.json'; 
+import { auth } from '../utils/api';
 
 export const useGameStore = defineStore('game', () => {
   const userStore = useUserStore();
@@ -18,6 +20,7 @@ export const useGameStore = defineStore('game', () => {
   // State
   const currentLevelConfig = ref(null);
   const currentChapter = ref(null);
+  const currentStoryScript = ref(null); 
   const questions = ref([]);
   const currentIndex = ref(0);
   const score = ref(0);
@@ -25,8 +28,8 @@ export const useGameStore = defineStore('game', () => {
   const isGameActive = ref(false);
   const userInteracted = ref(false);
   const isProcessing = ref(false);
-
-  const collectedCarriages = ref([]);
+  
+  const collectedCarriages = ref([]); 
   const resultData = ref(null);
   const sessionRecords = ref({});
   const totalClicks = ref(0);
@@ -34,24 +37,22 @@ export const useGameStore = defineStore('game', () => {
   const currentSkill = ref(null);
   const skillUsed = ref(false);
   const shieldActive = ref(false);
-
+  
   const timeLimit = ref(0);
   const timeRemaining = ref(0);
   const timerId = ref(null);
 
-  const transitionTimers = [];
-  let lastPlayTime = 0;
+  const currentFillIndex = ref(0); 
+  const currentFilledChars = ref([]); 
 
-  // 当前已填入的字索引 (例如"天空"，填了"天"，index=1)
-  const currentFillIndex = ref(0);
-  // 用户已选的答案序列 (用于UI显示填空槽)
-  const currentFilledChars = ref([]);
+  const transitionTimers = []; 
+  let lastPlayTime = 0;
 
   const currentQuestion = computed(() => {
     if (!questions.value || questions.value.length === 0) return null;
     return questions.value[currentIndex.value];
   });
-
+  
   const progressPercent = computed(() => {
     if (!questions.value.length) return 0;
     return ((currentIndex.value) / questions.value.length) * 100;
@@ -71,15 +72,52 @@ export const useGameStore = defineStore('game', () => {
     isProcessing.value = false;
   }
 
+  // [Day8 修复] 完整的 AI 获取与兜底函数
+  async function fetchAiScenario(levelId, questionsList) {
+      // 1. 尝试 AI
+      try {
+          const chars = questionsList.map(q => q.targetChars.map(c => c.char)).flat();
+          const uniqueChars = [...new Set(chars)].slice(0, 5);
+          if (uniqueChars.length === 0) return null;
+
+          const scenario = await auth.generateScenario(Number(levelId), uniqueChars);
+          if (scenario && scenario.dialogs && scenario.dialogs.length > 0) {
+              return {
+                  trigger: 'pre',
+                  background: scenario.background || 'bg-blue-500',
+                  dialogs: scenario.dialogs,
+                  id: `ai_${levelId}`
+              };
+          }
+      } catch (e) {
+          console.warn('AI scenario skipped:', e.message);
+      }
+      
+      // 2. [Day8] 本地兜底逻辑
+      // 如果 AI 失败，或者没返回有效数据，使用本地模板
+      // 这样保证剧情模式的连续性
+      const charsStr = questionsList.slice(0, 3).map(q => q.targetChars[0].char).join('、');
+      return {
+          trigger: 'pre',
+          background: 'bg-indigo-600',
+          id: `fallback_${levelId}`,
+          dialogs: [
+              { role: 'conductor', name: '列车长', text: `前方到达第 ${levelId} 关！`, emotion: 'happy' },
+              { role: 'conductor', name: '列车长', text: `我们要收集 [${charsStr}] 这些能量块。`, emotion: 'normal' },
+              { role: 'conductor', name: '列车长', text: '大家准备好了吗？出发！', emotion: 'happy' }
+          ]
+      };
+  }
+
   async function initLevel(levelId) {
     console.log(`[Game] Init level: ${levelId}`);
     clearAllTimers();
     isProcessing.value = false;
     isGameActive.value = true;
-    currentFillIndex.value = 0; // [Day4] 重置词语状态
+    currentFillIndex.value = 0;
     currentFilledChars.value = [];
+    currentStoryScript.value = null;
 
-    // 1. 复习关逻辑
     if (levelId === 'review') {
         const reviewChars = userStore.reviewList;
         if (reviewChars.length === 0) return false;
@@ -97,7 +135,7 @@ export const useGameStore = defineStore('game', () => {
         initSkill();
 
         const targetCharObjs = await fetchDetails(reviewChars.slice(0, 10));
-        questions.value = await generateQuestions(currentLevelConfig.value); // [Day4] 统一使用 generateQuestions
+        questions.value = buildQuestionsFromChars(targetCharObjs, currentLevelConfig.value.difficulty);
         triggerAudioPreload(questions.value);
         timeLimit.value = 15;
         audio.playBGM('/audio/bgm/default.mp3');
@@ -111,19 +149,14 @@ export const useGameStore = defineStore('game', () => {
     if (!levelConfig) {
       console.log(`[Game] Auto-generating Level ${levelIdNum}...`);
       
-      const isWordMode = levelIdNum > 20 && Math.random() < 0.3; // [Day4] 词语模式标记
-      const charCount = levelIdNum <= 10 ? 3 : (levelIdNum <= 30 ? 4 : (levelIdNum <= 60 ? 5 : 6));
-      
-      // [Day1] 策略 1: 优先从 priorityList 取
+      const charCount = levelIdNum <= 20 ? 3 : (levelIdNum <= 50 ? 4 : 5); 
       const priorityChars = userStore.priorityList.slice(0, charCount);
       
       if (priorityChars.length > 0) {
           const details = await fetchDetails(priorityChars);
           targetCharObjs = details;
-          console.log('[Game] Using priority chars:', priorityChars);
       }
       
-      // [Day1] 策略 2: 补全
       if (targetCharObjs.length < charCount) {
           const needed = charCount - targetCharObjs.length;
           const targetLevel = Math.min(Math.ceil(levelIdNum / 20), 5);
@@ -137,7 +170,6 @@ export const useGameStore = defineStore('game', () => {
               (!userStore.characters[c.char] || userStore.characters[c.char].level < 4)
           );
           
-          // 兜底
           const finalPool = pool.length > 0 ? pool : charsIndex.filter(c => c.level === targetLevel);
           const absoluteFinalPool = finalPool.length > 0 ? finalPool : charsIndex;
 
@@ -147,17 +179,22 @@ export const useGameStore = defineStore('game', () => {
           targetCharObjs = [...targetCharObjs, ...randomDetails];
       }
 
-      // [修复] 这里不需要再 fetch 了，targetCharObjs 已经准备好了
-      
+      let optionCount = 4;
+      if (levelIdNum <= 20) optionCount = 3;
+      else if (levelIdNum <= 50) optionCount = 4;
+      else optionCount = 5;
+
       levelConfig = {
         levelId: levelIdNum,
         chapter: Math.min(Math.ceil(levelIdNum / 20), 3), 
         name: `第 ${levelIdNum} 关`,
-        difficulty: { optionCount: 4, timeLimit: 0 },
+        difficulty: { 
+            optionCount: optionCount,
+            timeLimit: levelIdNum > 20 ? 15 : 0 
+        },
         _autoGeneratedTargetObjs: targetCharObjs
       };
     } else {
-        // 手写配置
         const ids = levelConfig.targetChars.map(char => {
             const found = charsIndex.find(c => c.char === char);
             return found ? found.id : char; 
@@ -180,118 +217,76 @@ export const useGameStore = defineStore('game', () => {
     initSkill();
 
     timeLimit.value = levelConfig.difficulty?.timeLimit || 0;
+    questions.value = buildQuestionsFromChars(targetCharObjs, levelConfig.difficulty);
     
-    // [Day4] 生成题目 (支持词语)
-    questions.value = await generateQuestions(levelConfig);
+    // [Day6] 预加载下一关的 AI 剧情
+    try {
+        const nextScenarioLevel = Math.ceil((levelIdNum + 1) / 5) * 5;
+        if (userStore.scenarioCache && !userStore.scenarioCache[nextScenarioLevel]) {
+            // 简单预测下一关的字 (为了生成相关剧情)
+            const targetLevel = Math.min(Math.ceil(nextScenarioLevel / 20), 5);
+            const pool = charsIndex.filter(c => c.level === targetLevel);
+            const randomChars = pool.slice(0, 5).map(c => c.char); // 简单取前5个作为mock
+            
+            // 异步调用
+            auth.generateScenario(nextScenarioLevel, randomChars).then(scenario => {
+                if (scenario && scenario.dialogs) {
+                    userStore.cacheScenario(nextScenarioLevel, {
+                        trigger: 'pre',
+                        background: scenario.background,
+                        dialogs: scenario.dialogs,
+                        id: `ai_${nextScenarioLevel}`
+                    });
+                }
+            }).catch(() => {}); // 失败不处理，反正有兜底
+        }
+    } catch (e) {}
     
+    // [Day8] 本关如果有 AI 剧情 (之前预加载的，或者现在实时取的)
+    // 检查缓存
+    if (userStore.scenarioCache[levelIdNum]) {
+        currentStoryScript.value = userStore.scenarioCache[levelIdNum];
+    } 
+    // 如果缓存没有，且是触发点，且本地也没有，尝试实时获取并兜底
+    else if (levelIdNum % 5 === 0 && !storyData[levelIdNum]) {
+        // 这里的 await 会稍微阻塞，但为了剧情完整性是值得的
+        // 如果 fetchAiScenario 内部网络超时，会返回本地兜底，所以不会无限卡
+        const script = await fetchAiScenario(levelIdNum, questions.value);
+        if (script) currentStoryScript.value = script;
+    }
+
     triggerAudioPreload(questions.value);
     
     return true;
   }
 
-  // [Day4] 升级为支持词语的生成器
-  async function generateQuestions(level) {
-    let targets = [];
-    if (level._autoGeneratedTargetObjs) targets = level._autoGeneratedTargetObjs;
-    // ...
-
-    const qList = [];
-
-    for (const charObj of targets) {
-      // [Day4] 词语判定逻辑
-      // 如果该字有组词 (example)，且长度为 2-4，且随机命中
-      // 且关卡 ID > 10 (作为示例)
-      const canBeWord = charObj.example && charObj.example.length >= 2 && charObj.example.length <= 4 && Math.random() < 0.4;
-
-      if (canBeWord) {
-        // 生成词语题
-        const word = charObj.example; // "天空"
-        // 我们需要获取这个词里每个字的详情（为了拼音和语音）
-        // 注意：charsIndex 里可能没有某些字（比如生僻组词）。
-        // 简单起见，我们只生成 "Target字 + 其他字" 的结构
-        // 题目对象结构升级：
-        // isWord: true
-        // targetText: "天空"
-        // targetChars: [ {char:'天'}, {char:'空'} ]
-        // options: [ {char:'天'}, {char:'空'}, {char:'大'}, {char:'海'} ]
-
-        // 分解词语
-        const charList = word.split('');
-        const charDetails = await fetchDetails(charList); // 获取每个字的详情
-
-        const q = {
-          isWord: true,
-          targetText: word,
-          targetChars: charDetails, // 正确答案序列
-          options: generateWordOptions(charDetails, level.difficulty),
-          status: 'pending'
-        };
-        qList.push(q);
-
-      } else {
-        // 单字题 (旧逻辑)
-        // 为了统一结构，单字题也包装成 isWord: false
-        const options = generateOptions(charObj, level.difficulty).map(opt => ({ ...opt, state: 'normal' }));
-        qList.push({
-          isWord: false,
-          targetChar: charObj, // 保留旧字段兼容
-          targetText: charObj.char, // 统一字段
-          targetChars: [charObj],   // 统一字段
-          options: options,
-          status: 'pending'
-        });
-      }
-    }
-    return qList;
-  }
-
-  // [Day4] 词语选项生成
-  function generateWordOptions(targetChars, difficulty) {
-    // 目标：包含所有正确字，再补干扰项
-    // targetChars: [{char:'天'}, {char:'空'}]
-    const correctOptions = targetChars.map(c => ({ ...c, state: 'normal' }));
-
-    // 需要补足到 4 个或更多
-    const totalNeeded = Math.max(4, targetChars.length + 2); // 至少 2 个干扰项
-    const distractorsNeeded = totalNeeded - correctOptions.length;
-
-    // 找干扰项 (随机)
-    // 注意：要排除正确字
-    const pool = charsIndex.filter(c => !targetChars.some(t => t.char === c.char));
-    const distractors = pool.sort(() => Math.random() - 0.5).slice(0, distractorsNeeded).map(c => ({ ...c, state: 'normal' }));
-
-    // 合并打乱
-    return [...correctOptions, ...distractors].sort(() => Math.random() - 0.5);
-  }
-
   function triggerAudioPreload(questionsList) {
-    const audioUrls = new Set();
-    questionsList.forEach(q => {
-      if (q.targetChar && q.targetChar.char) {
-        audioUrls.add(`/audio/chars/${q.targetChar.char}_question.mp3`);
-      }
-      q.options.forEach(opt => {
-        if (opt.char) audioUrls.add(`/audio/chars/${opt.char}.mp3`);
+      const audioUrls = new Set();
+      questionsList.forEach(q => {
+          if (q.targetChar && q.targetChar.char) {
+             audioUrls.add(`/audio/chars/${q.targetChar.char}_question.mp3`);
+          }
+          q.options.forEach(opt => {
+              if (opt.char) audioUrls.add(`/audio/chars/${opt.char}.mp3`);
+          });
       });
-    });
-    preloadAudio(Array.from(audioUrls));
+      preloadAudio(Array.from(audioUrls));
   }
 
-  // [辅助] 批量获取详情，兼容 ID 和 Char
   async function fetchDetails(idsOrChars) {
-    const promises = idsOrChars.map(id => userStore.getCharDetail(id));
-    const results = await Promise.all(promises);
-
-    return results.map((res, index) => {
-      if (res) return res;
-      const originalInput = idsOrChars[index];
-      let charStr = originalInput;
-      if (originalInput.startsWith('h_')) {
-        const found = charsIndex.find(c => c.id === originalInput);
-        if (found) charStr = found.char;
-      }
-      return { id: originalInput, char: charStr, pinyin: '' };
-    }).filter(item => item && item.char);
+      const promises = idsOrChars.map(id => userStore.getCharDetail(id));
+      const results = await Promise.all(promises);
+      
+      return results.map((res, index) => {
+          if (res) return res;
+          const originalInput = idsOrChars[index];
+          let charStr = originalInput;
+          if (originalInput.startsWith('h_')) {
+              const found = charsIndex.find(c => c.id === originalInput);
+              if (found) charStr = found.char;
+          }
+          return { id: originalInput, char: charStr, pinyin: '' };
+      }).filter(item => item && item.char); 
   }
 
   function resetGameState() {
@@ -323,7 +318,14 @@ export const useGameStore = defineStore('game', () => {
         ...opt,
         state: 'normal'
       }));
-      qList.push({ targetChar: target, options: optionsWithState, status: 'pending', isReview: false });
+      qList.push({ 
+          isWord: false, 
+          targetChar: target, 
+          targetChars: [target], 
+          options: optionsWithState, 
+          status: 'pending', 
+          isReview: false 
+      });
     });
     return qList;
   }
@@ -332,51 +334,8 @@ export const useGameStore = defineStore('game', () => {
     const pool = charsIndex.filter(c => c.char !== target.char);
     const maxOptions = 6;
     const configCount = Math.min(difficulty.optionCount, maxOptions);
-    const neededCount = configCount - 1; // 需要几个干扰项
-
-    // [Day3] 优先使用配置的干扰项 (无论 Easy/Hard，只要有配置都先用)
-    // 顺序：Hard (家长配置) > Medium > Easy
-    // target 对象来自于 fetchDetails，已经是合并了家长配置的完整对象
-
-    const conf = target.confusingChars || {};
-    const preferredList = [
-      ...(conf.hard || []),
-      ...(conf.medium || []),
-      ...(conf.easy || [])
-    ];
-
-    // 去重并转为对象
-    // 注意：preferredList 只是字符串数组 ['入', '八']
-    // 我们需要从 charsIndex 里找到对应的对象 {id, char, level}
-    // 如果是自定义字，charsIndex 里可能没有，得去 customCharacters 里找
-    // 简单起见，我们只处理 charsIndex 里有的
-
-    let distractors = [];
-
-    // 1. 填充优先干扰项
-    for (const charStr of preferredList) {
-      if (distractors.length >= neededCount) break;
-
-      // 查找对象
-      const found = charsIndex.find(c => c.char === charStr);
-      // 或者是自定义字？userStore.customCharacters[charStr]
-      // 这里 access userStore 有点麻烦，如果你没引入，需要引入
-
-      if (found && !distractors.some(d => d.char === found.char)) {
-        distractors.push(found);
-      }
-    }
-
-    // 2. 如果不够，随机补全
-    if (distractors.length < neededCount) {
-      const remaining = neededCount - distractors.length;
-      // 过滤掉已选的
-      const cleanPool = pool.filter(c => !distractors.some(d => d.char === c.char));
-      const randomExtras = cleanPool.sort(() => Math.random() - 0.5).slice(0, remaining);
-      distractors = [...distractors, ...randomExtras];
-    }
-
-    // 3. 合并并打乱
+    const count = Math.min(pool.length, configCount - 1);
+    const distractors = pool.sort(() => Math.random() - 0.5).slice(0, count);
     return [...distractors, target].sort(() => Math.random() - 0.5);
   }
 
@@ -415,37 +374,26 @@ export const useGameStore = defineStore('game', () => {
     lastPlayTime = now;
 
     if (!currentQuestion.value) return;
-    // [Day4] 适配词语语音
-    if (currentQuestion.value.isWord) {
-      // 播放词语 TTS (或者如果有 word.mp3 更好)
-      // 暂时用 TTS
-      const text = `请拼出：${currentQuestion.value.targetText}`;
-      audio.speakTTS(text);
-    } else {
-      // 单字逻辑
-      const charObj = currentQuestion.value.targetChar;
-      audio.playQuestion(charObj);
-    }
+    const charObj = currentQuestion.value.targetChar;
+    audio.playQuestion(charObj);
     startTimer();
   }
 
   function submitAnswer(selectedOption) {
     if (!isGameActive.value || isProcessing.value || selectedOption.state === 'wrong') return false;
-    
     userInteracted.value = true;
     totalClicks.value++;
 
     const q = currentQuestion.value;
-    const currentTarget = q.targetChars[currentFillIndex.value]; 
+    const currentTarget = q.targetChars[currentFillIndex.value];
     
-    // 1. 判断是否命中当前需要的字
     if (selectedOption.char === currentTarget.char) {
         selectedOption.state = 'correct'; 
         audio.playSFX('correct'); 
         currentFilledChars.value.push(selectedOption);
         currentFillIndex.value++;
         
-        if (!q.isWord && !q.isReview) {
+        if (!q.isReview) {
             const charStr = currentTarget.char;
             if (!(charStr in sessionRecords.value)) sessionRecords.value[charStr] = true;
         }
@@ -455,92 +403,70 @@ export const useGameStore = defineStore('game', () => {
             handleCorrect(); 
         }
         return true;
-    } 
-    
-    // 2. 选错逻辑
-    
-    // 2.1 护盾
-    if (shieldActive.value) {
-        shieldActive.value = false;
-        audio.playSFX('attach');
-        totalClicks.value--;
+    } else {
+        if (shieldActive.value) {
+            shieldActive.value = false;
+            selectedOption.state = 'wrong';
+            audio.playSFX('attach'); 
+            totalClicks.value--;
+            return false; 
+        }
+        
+        selectedOption.state = 'wrong';
+        audio.playSFX('wrong');
+        
+        if (q.targetChars.length === 1) {
+             if (!q.isReview) {
+                const charStr = q.targetChars[0].char;
+                if (!(charStr in sessionRecords.value)) sessionRecords.value[charStr] = false;
+            }
+            handleWrong(q.targetChar);
+        }
+        
         return false;
     }
-    
-    audio.playSFX('wrong');
-
-    // 2.2 判断是否要置灰 (变灰 = 死刑)
-    // 规则：
-    // - 单字模式：只要错，必须死 (为了触发纠错流程)
-    // - 词语模式：只有当它是【纯干扰项】时才死。如果它是词里的字(顺序错)，不能死。
-    
-    let shouldDisable = true;
-    
-    if (q.isWord) {
-        // 检查是否属于目标词
-        // 注意：这里必须用 char 字符串比较，防止对象引用不同
-        const isPartOfWord = q.targetChars.some(c => c.char === selectedOption.char);
-        if (isPartOfWord) {
-            shouldDisable = false; // 属于词，只是顺序不对，不置灰
-        }
-    }
-    
-    if (shouldDisable) {
-        selectedOption.state = 'wrong';
-    }
-
-    // 2.3 记录错误 (单字模式)
-    if (!q.isWord) {
-        if (!q.isReview) {
-            const charStr = q.targetChars[0].char;
-            if (!(charStr in sessionRecords.value)) sessionRecords.value[charStr] = false;
-        }
-        handleWrong(q.targetChar);
-    }
-    console.log('Selected:', selectedOption.char);
-    console.log('TargetChars:', q.targetChars.map(c => c.char));
-    console.log('Is Part:', isPartOfWord);
-    return false;
   }
 
   function handleCorrect() {
     stopTimer();
-    audio.playVoice('太棒了！', 'great');
-
-    transitionTimers.push(setTimeout(() => {
-      audio.playSFX('correct');
-    }, 1000));
-
-    currentFillIndex.value = 0;
-    currentFilledChars.value = [];
-
+    audio.playVoice('太棒了！', 'great'); 
+    
+    transitionTimers.push(setTimeout(() => { 
+        audio.playSFX('correct'); 
+    }, 1000)); 
+    
     streak.value++;
     score.value += 10 + (streak.value > 3 ? 5 : 0);
-
+    
+    currentFillIndex.value = 0;
+    currentFilledChars.value = [];
+    
     transitionTimers.push(setTimeout(() => {
-      const newCarriage = { char: currentQuestion.value.targetChar.char, type: streak.value >= 5 ? 'golden' : 'normal', id: Date.now() };
-      collectedCarriages.value.push(newCarriage);
+      const q = currentQuestion.value;
+      q.targetChars.forEach(c => {
+          collectedCarriages.value.push({ char: c.char, type: streak.value >= 5 ? 'golden' : 'normal', id: Date.now() + Math.random() });
+      });
       audio.playSFX('attach');
     }, 1500));
-
-    transitionTimers.push(setTimeout(() => {
-      isProcessing.value = false;
-      nextQuestion();
+    
+    transitionTimers.push(setTimeout(() => { 
+        isProcessing.value = false; 
+        nextQuestion(); 
     }, 2500));
   }
 
-  function handleWrong(targetChar,wrongOption) {
+  function handleWrong(targetChar) {
     stopTimer();
     audio.playSFX('wrong');
-    transitionTimers.push(setTimeout(() => {
-      audio.playVoice('不对哦，再试一次', 'try_again');
+    transitionTimers.push(setTimeout(() => { 
+        audio.playVoice('不对哦，再试一次', 'try_again'); 
     }, 800));
-
+    
     streak.value = 0;
     const currentQ = currentQuestion.value;
     if (!currentQ.isReview) {
       const reviewQ = JSON.parse(JSON.stringify(currentQ));
-      reviewQ.isReview = true;
+      reviewQ.isReview = true; 
       reviewQ.options.forEach(o => o.state = 'normal');
       questions.value.push(reviewQ);
     }
@@ -569,7 +495,7 @@ export const useGameStore = defineStore('game', () => {
     } else if (currentSkill.value === 'shield') {
       shieldActive.value = true;
       skillUsed.value = true;
-      audio.playSFX('correct');
+      audio.playSFX('correct'); 
       return true;
     }
     return false;
@@ -577,10 +503,11 @@ export const useGameStore = defineStore('game', () => {
 
   function finishGame() {
     if (!isGameActive.value) return;
-    clearAllTimers();
+    clearAllTimers(); 
+    audio.stopAll();
     isGameActive.value = false;
     isProcessing.value = false;
-
+    
     const results = Object.entries(sessionRecords.value).map(([char, isCorrect]) => ({
       char,
       isCorrect
@@ -590,11 +517,11 @@ export const useGameStore = defineStore('game', () => {
     const passCount = collectedCarriages.value.length;
     let accuracy = 0;
     if (totalClicks.value > 0) accuracy = passCount / totalClicks.value;
-
+    
     let stars = 1;
     if (accuracy >= 0.9) stars = 3;
     else if (accuracy >= 0.7) stars = 2;
-
+    
     resultData.value = {
       levelId: currentLevelConfig.value.levelId,
       score: score.value,
@@ -604,12 +531,11 @@ export const useGameStore = defineStore('game', () => {
     if (collectedCarriages.value.length > 0) userStore.recordLearning(collectedCarriages.value.length);
     userStore.updateProgress(currentLevelConfig.value.levelId, stars, score.value);
     userStore.checkAchievements();
-
-    // [Day1] 移除已掌握的优先字
+    
     collectedCarriages.value.forEach(item => {
-      if (userStore.priorityList.includes(item.char)) {
-        userStore.removePriorityChar(item.char);
-      }
+        if (userStore.priorityList.includes(item.char)) {
+            userStore.removePriorityChar(item.char);
+        }
     });
 
     router.replace('/result');
@@ -619,6 +545,6 @@ export const useGameStore = defineStore('game', () => {
     currentLevelConfig, currentChapter, currentQuestion, currentIndex, score, streak,
     collectedCarriages, resultData, progressPercent, currentSkill, skillUsed, shieldActive,
     useSkill, timeLimit, timeRemaining, startTimer, stopTimer, initLevel, submitAnswer, playQuestionAudio, exitGame,
-    currentFillIndex, currentFilledChars,
+    currentStoryScript, currentFillIndex, currentFilledChars
   };
 });

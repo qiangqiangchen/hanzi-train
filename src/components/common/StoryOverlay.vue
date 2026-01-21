@@ -79,10 +79,25 @@ const typeWriter = () => {
   // [Day5 优化] 播放剧情语音
   // 停止之前的语音
   window.speechSynthesis.cancel();
-  if (currentScript.value.id) {
+  if (currentAudio.value) currentAudio.value.stop();
+
+  // [修复] 优先使用后端返回的 audio_url
+  if (currentDialog.value.audio_url) {
+      const sound = new Howl({
+          src: [currentDialog.value.audio_url],
+          html5: true,
+          onloaderror: () => audio.speakTTS(text)
+      });
+      sound.play();
+      currentAudio.value = sound;
+  } 
+  // 其次尝试本地静态资源 (手动配置的剧情)
+  else if (currentScript.value.id && !currentScript.value.id.startsWith('ai_')) {
       playStoryAudio(currentScript.value.id, currentIndex.value);
-  } else {
-      audio.speakTTS(text); // 兜底
+  } 
+  // 最后兜底 TTS
+  else {
+      audio.speakTTS(text);
   }
   
   displayedText.value = '';

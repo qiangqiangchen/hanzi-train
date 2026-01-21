@@ -15,7 +15,14 @@ export const db = {
 
   async set(key, value) {
     try {
-      await set(KEY_PREFIX + key, JSON.parse(JSON.stringify(value))); // 确保存入纯数据
+      // [修复] 防止 undefined 导致 JSON.stringify 异常
+      if (value === undefined) {
+          console.warn(`[DB] Skipping undefined value for key: ${key}`);
+          return;
+      }
+      // 深拷贝去除非序列化数据 (如 Proxy)
+      const cleanValue = JSON.parse(JSON.stringify(value));
+      await set(KEY_PREFIX + key, cleanValue);
     } catch (e) {
       console.error('DB Set Error:', e);
     }

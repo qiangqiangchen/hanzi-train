@@ -53,7 +53,19 @@ export const auth = {
   async generateStory(knownChars) {
     const res = await api.post('/story/generate', { known_chars: knownChars });
     return res.data;
-  }
+  },
+  async generateScenario(level, chars) {
+    try {
+        // [Day8] 缩短超时到 3s，避免让用户等太久
+        // 如果是预加载(后台跑)，可以长一点；如果是实时请求，必须短。
+        // 我们统一设为 5s，因为现在主要靠预加载。
+        const res = await api.post('/story/scenario', { level, chars }, { timeout: 5000 });
+        return res.data;
+    } catch (e) {
+        console.warn('AI API Error:', e.message);
+        return null; // 优雅降级
+    }
+  },
 };
 
 export default api;
