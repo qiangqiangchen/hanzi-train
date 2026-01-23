@@ -15,6 +15,11 @@ api.interceptors.request.use(config => {
 });
 
 export const auth = {
+   async initLevel(levelId) {
+    const res = await api.post('/game/init_level', { level_id: levelId });
+    return res.data;
+  },
+
   async register(username, password) {
     const res = await api.post('/register', { username, password });
     localStorage.setItem('hanzi_token', res.data.access_token);
