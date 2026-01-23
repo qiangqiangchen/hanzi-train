@@ -48,7 +48,7 @@
         </div>
 
         <!-- [Day4] 填空槽 -->
-        <div v-if="gameStore.currentQuestion.targetChars && gameStore.currentQuestion.targetChars.length > 1" class="w-full flex justify-center gap-2 mb-4 flex-shrink-0">
+        <div v-if="gameStore.currentQuestion.isWord" class="w-full flex justify-center gap-2 mb-4 flex-shrink-0">
             <div 
               v-for="(charObj, idx) in gameStore.currentQuestion.targetChars" 
               :key="idx"
@@ -243,9 +243,20 @@ const playAudio = () => gameStore.playQuestionAudio();
 const handleSelect = (option) => {
   const isCorrect = gameStore.submitAnswer(option);
   if (isCorrect) {
+    // 1. 初始化
     successChar.value = { ...option };
-    // [修复] 拼音获取增加兜底
-    if (!successChar.value.pinyin) successChar.value.pinyin = getPinyin(option.char);
+
+    // 2. [核心修复] 从当前题目获取完整信息 (拼音、组词)
+    const currentQ = gameStore.currentQuestion;
+    if (currentQ && currentQ.targetChar) {
+        // 直接合并后端给的完整数据
+        Object.assign(successChar.value, currentQ.targetChar);
+    }
+
+    // 3. (可选) 如果还是没有，再尝试 getPinyin 兜底
+    if (!successChar.value.pinyin) {
+        successChar.value.pinyin = getPinyin(option.char);
+    }
     
     showSuccessModal.value = true;
     if (gameStore.streak > 3) effects.playStreak();
