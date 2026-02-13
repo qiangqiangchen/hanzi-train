@@ -1,31 +1,40 @@
 <template>
   <OrientationCheck />
-  <!-- [Day9] 页面转场 -->
-  <!-- <router-view v-slot="{ Component }">
-    <transition name="fade" mode="out-in" >
-      <component :is="Component" :key="$route.path" />
-    </transition>
-  </router-view> -->
   <router-view v-slot="{ Component }">
     <transition name="fade">
       <component :is="Component" :key="$route.fullPath" />
     </transition>
   </router-view>
 
-  <!-- [Day6] 全局成就弹窗 -->
+  <!-- 全局成就弹窗 -->
   <AchievementToast ref="toastRef" />
-  <InstallPrompt /> <!-- [Day8] -->
+  <InstallPrompt />
+
+  <!-- ★ 全局登录弹窗 -->
+  <LoginModal ref="loginModalRef" @success="onLoginSuccess" />
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, watch, provide } from 'vue';
 import { useUserStore } from './stores/user';
 import OrientationCheck from './components/common/OrientationCheck.vue';
 import AchievementToast from './components/common/AchievementToast.vue';
 import InstallPrompt from './components/common/InstallPrompt.vue';
+import LoginModal from './components/common/LoginModal.vue';
 
 const userStore = useUserStore();
 const toastRef = ref(null);
+const loginModalRef = ref(null);
+
+// ★ 通过 provide 让所有子组件都能打开登录弹窗
+provide('loginModal', {
+  open: (mode) => loginModalRef.value?.open(mode),
+  close: () => loginModalRef.value?.close(),
+});
+
+const onLoginSuccess = () => {
+  console.log('[App] Login success, data reloaded');
+};
 
 watch(() => userStore.newAchievementsQueue.length, (newVal) => {
   if (newVal > 0) {
@@ -37,14 +46,11 @@ watch(() => userStore.newAchievementsQueue.length, (newVal) => {
 });
 </script>
 
-
 <style>
-/* [Day9] 全局转场动画 */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;
 }
-
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;

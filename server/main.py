@@ -7,7 +7,7 @@ import os
 
 from app.config import settings
 from app.database import init_db
-from app.routers import auth, game, progress, story, tts, parent
+from app.routers import auth, game, progress, story, tts, parent, achievements
 
 # --- 创建 App ---
 app = FastAPI(
@@ -37,6 +37,7 @@ app.include_router(progress.router)
 app.include_router(story.router)
 app.include_router(tts.router)
 app.include_router(parent.router)
+app.include_router(achievements.router)
 
 
 # --- 健康检查 ---

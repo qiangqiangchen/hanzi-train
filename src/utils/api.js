@@ -39,6 +39,8 @@ export const authApi = {
       display_name: displayName,
     });
     localStorage.setItem('hanzi_token', res.data.access_token);
+    localStorage.setItem('hanzi_user_id', String(res.data.user_id));
+    localStorage.setItem('hanzi_username', res.data.username);
     return res.data;
   },
 
@@ -48,6 +50,8 @@ export const authApi = {
     params.append('password', password);
     const res = await api.post('/api/auth/login', params);
     localStorage.setItem('hanzi_token', res.data.access_token);
+    localStorage.setItem('hanzi_user_id', String(res.data.user_id));
+    localStorage.setItem('hanzi_username', res.data.username);
     return res.data;
   },
 
@@ -58,13 +62,22 @@ export const authApi = {
 
   logout() {
     localStorage.removeItem('hanzi_token');
+    localStorage.removeItem('hanzi_user_id');
+    localStorage.removeItem('hanzi_username');
   },
 
   isLoggedIn() {
     return !!localStorage.getItem('hanzi_token');
   },
-};
 
+  getUserId() {
+    return localStorage.getItem('hanzi_user_id');
+  },
+
+  getUsername() {
+    return localStorage.getItem('hanzi_username');
+  },
+};
 // ==================== Progress ====================
 
 export const progressApi = {
@@ -204,6 +217,10 @@ export const parentApi = {
     const res = await api.get('/api/parent/sync/download');
     return res.data;
   },
+  async getHistory(days = 7) {
+    const res = await api.get(`/api/parent/history?days=${days}`);
+    return res.data;
+  },
 };
 
 // ==================== 兼容旧接口 ====================
@@ -217,6 +234,26 @@ export const auth = {
   downloadSave: parentApi.downloadSave,
   generateStory: storyApi.generateStory,
   generateScenario: storyApi.generateScenario,
+};
+
+export const achievementsApi = {
+  async getAll() {
+    const res = await api.get('/api/achievements/');
+    return res.data;
+  },
+
+  async check(context = {}) {
+    const res = await api.post('/api/achievements/check', context);
+    return res.data;
+  },
+
+  async sync(achievementIds) {
+    // ★ 包装成对象，匹配后端 AchievementSyncRequest
+    const res = await api.post('/api/achievements/sync', {
+      achievement_ids: achievementIds,
+    });
+    return res.data;
+  },
 };
 
 export default api;

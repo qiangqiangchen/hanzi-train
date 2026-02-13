@@ -5,16 +5,14 @@
       <div class="bg-white p-8 rounded-2xl shadow-lg w-full text-center">
         <h2 class="text-2xl font-bold mb-6 text-gray-700">🔒 家长验证</h2>
         <p class="mb-4 text-gray-500">请回答：{{ num1 }} + {{ num2 }} = ?</p>
-        <input
-          v-model="inputAnswer"
-          type="number"
+        <input v-model="inputAnswer" type="number"
           class="w-full text-center text-3xl border-2 border-blue-200 rounded-lg py-3 mb-6 focus:border-blue-500 outline-none"
-          placeholder="输入结果"
-          @keyup.enter="checkAnswer"
-        >
+          placeholder="输入结果" @keyup.enter="checkAnswer">
         <div class="flex space-x-4">
-          <button @click="$router.push('/')" class="flex-1 py-3 rounded-xl bg-gray-100 text-gray-600 font-bold">返回</button>
-          <button @click="checkAnswer" class="flex-1 py-3 rounded-xl bg-blue-500 text-white font-bold shadow-md">确认</button>
+          <button @click="$router.push('/')"
+            class="flex-1 py-3 rounded-xl bg-gray-100 text-gray-600 font-bold">返回</button>
+          <button @click="checkAnswer"
+            class="flex-1 py-3 rounded-xl bg-blue-500 text-white font-bold shadow-md">确认</button>
         </div>
       </div>
     </div>
@@ -23,7 +21,8 @@
     <div v-else class="w-full max-w-4xl animate-fade-in mb-10">
       <div class="flex justify-between items-center mb-8">
         <h1 class="text-3xl font-bold text-gray-800">👨‍👩‍👧 家长中心</h1>
-        <button @click="$router.push('/')" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold hover:bg-gray-300 transition">
+        <button @click="$router.push('/')"
+          class="bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-bold hover:bg-gray-300 transition">
           退出
         </button>
       </div>
@@ -79,17 +78,15 @@
           </div>
 
           <!-- 薄弱汉字 -->
-          <div v-if="dashboard.weak_chars && dashboard.weak_chars.length > 0" class="bg-white p-6 rounded-2xl shadow-sm">
+          <div v-if="dashboard.weak_chars && dashboard.weak_chars.length > 0"
+            class="bg-white p-6 rounded-2xl shadow-sm">
             <h3 class="text-lg font-bold text-gray-600 mb-4 border-l-4 border-red-500 pl-3">
               ⚠️ 薄弱汉字 <span class="text-sm text-gray-400 font-normal">（错误率较高）</span>
             </h3>
             <div class="flex flex-wrap gap-2">
-              <div
-                v-for="item in dashboard.weak_chars"
-                :key="item.char"
+              <div v-for="item in dashboard.weak_chars" :key="item.char"
                 class="bg-red-50 border border-red-200 rounded-xl px-4 py-2 flex items-center gap-2 cursor-pointer hover:bg-red-100 transition"
-                @click="addToPriority(item.char)"
-              >
+                @click="addToPriority(item.char)">
                 <span class="text-2xl font-bold text-red-700">{{ item.char }}</span>
                 <div class="text-xs text-red-500">
                   <div>✓{{ item.correct }} ✗{{ item.wrong }}</div>
@@ -106,7 +103,8 @@
             <p class="text-gray-600 text-sm leading-relaxed" v-if="dashboard.total_chars < 10">
               孩子刚刚起步，建议每天坚持玩 10 分钟，多给予口头鼓励。
             </p>
-            <p class="text-gray-600 text-sm leading-relaxed" v-else-if="dashboard.mastered_chars < dashboard.total_chars * 0.5">
+            <p class="text-gray-600 text-sm leading-relaxed"
+              v-else-if="dashboard.mastered_chars < dashboard.total_chars * 0.5">
               孩子认识了不少字，但掌握率还可以提高。建议多做复习关卡，巩固已学汉字。
             </p>
             <p class="text-gray-600 text-sm leading-relaxed" v-else>
@@ -119,27 +117,37 @@
             <h3 class="text-lg font-bold text-blue-600 mb-4 flex items-center gap-2">
               <span>☁️</span> 云端同步
             </h3>
-            <div v-if="!userProfile" class="flex flex-col gap-3">
-              <input v-model="form.username" type="text" placeholder="用户名" class="w-full px-4 py-2 rounded-lg border bg-gray-50">
-              <input v-model="form.password" type="password" placeholder="密码" class="w-full px-4 py-2 rounded-lg border bg-gray-50">
-              <div class="flex gap-2">
-                <button @click="handleLogin" class="flex-1 bg-blue-500 text-white py-2 rounded-lg font-bold hover:bg-blue-600">登录</button>
-                <button @click="handleRegister" class="flex-1 bg-white text-blue-500 border border-blue-500 py-2 rounded-lg font-bold hover:bg-blue-50">注册</button>
+            <div v-if="!userProfile" class="flex flex-col items-center gap-4 py-4">
+              <p class="text-gray-500 text-sm text-center">登录后可同步数据到云端，换设备也不丢失进度</p>
+              <div class="flex gap-3 w-full">
+                <button @click="handleLogin"
+                  class="flex-1 bg-blue-500 text-white py-3 rounded-xl font-bold hover:bg-blue-600 transition">
+                  登录
+                </button>
+                <button @click="handleRegister"
+                  class="flex-1 bg-white text-blue-500 border-2 border-blue-500 py-3 rounded-xl font-bold hover:bg-blue-50 transition">
+                  注册
+                </button>
               </div>
             </div>
             <div v-else>
               <div class="flex justify-between items-center mb-4">
                 <span class="font-bold text-gray-700">👤 {{ userProfile.username }}</span>
                 <div class="flex items-center gap-2">
-                  <span class="text-xs px-2 py-0.5 rounded-full font-bold" :class="userStore.isOnline ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-500'">
+                  <span class="text-xs px-2 py-0.5 rounded-full font-bold"
+                    :class="userStore.isOnline ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-500'">
                     {{ userStore.isOnline ? '🟢 在线' : '⚪ 离线' }}
                   </span>
                   <button @click="handleLogout" class="text-xs text-red-500 underline">退出</button>
                 </div>
               </div>
               <div class="flex gap-2 mb-4">
-                <button @click="userStore.syncUpload()" class="flex-1 bg-blue-100 text-blue-700 py-2 rounded-lg font-bold hover:bg-blue-200 text-sm flex items-center justify-center gap-1">⬆️ 上传存档</button>
-                <button @click="userStore.syncDownload()" class="flex-1 bg-green-100 text-green-700 py-2 rounded-lg font-bold hover:bg-green-200 text-sm flex items-center justify-center gap-1">⬇️ 下载存档</button>
+                <button @click="userStore.syncUpload()"
+                  class="flex-1 bg-blue-100 text-blue-700 py-2 rounded-lg font-bold hover:bg-blue-200 text-sm flex items-center justify-center gap-1">⬆️
+                  上传存档</button>
+                <button @click="userStore.syncDownload()"
+                  class="flex-1 bg-green-100 text-green-700 py-2 rounded-lg font-bold hover:bg-green-200 text-sm flex items-center justify-center gap-1">⬇️
+                  下载存档</button>
               </div>
               <div class="text-xs text-gray-400 text-center">上次同步: {{ formatTime(userProfile.last_sync) }}</div>
             </div>
@@ -151,8 +159,11 @@
             <div class="space-y-4">
               <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                 <span class="text-gray-700 font-bold">显示拼音</span>
-                <button @click="toggleSetting('showPinyin')" class="w-12 h-6 rounded-full relative transition-colors duration-300" :class="userStore.settings.showPinyin ? 'bg-green-500' : 'bg-gray-300'">
-                  <div class="absolute top-1 w-4 h-4 bg-white rounded-full transition-transform duration-300 shadow-sm" :class="userStore.settings.showPinyin ? 'left-7' : 'left-1'"></div>
+                <button @click="toggleSetting('showPinyin')"
+                  class="w-12 h-6 rounded-full relative transition-colors duration-300"
+                  :class="userStore.settings.showPinyin ? 'bg-green-500' : 'bg-gray-300'">
+                  <div class="absolute top-1 w-4 h-4 bg-white rounded-full transition-transform duration-300 shadow-sm"
+                    :class="userStore.settings.showPinyin ? 'left-7' : 'left-1'"></div>
                 </button>
               </div>
               <div class="p-3 bg-gray-50 rounded-lg">
@@ -160,14 +171,18 @@
                   <span class="text-gray-700 font-bold">背景音乐</span>
                   <span class="text-gray-500 text-sm">{{ Math.round(userStore.settings.bgmVolume * 100) }}%</span>
                 </div>
-                <input type="range" min="0" max="1" step="0.1" :value="userStore.settings.bgmVolume" @input="updateVolume('bgm', $event.target.value)" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500">
+                <input type="range" min="0" max="1" step="0.1" :value="userStore.settings.bgmVolume"
+                  @input="updateVolume('bgm', $event.target.value)"
+                  class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500">
               </div>
               <div class="p-3 bg-gray-50 rounded-lg">
                 <div class="flex justify-between mb-2">
                   <span class="text-gray-700 font-bold">音效音量</span>
                   <span class="text-gray-500 text-sm">{{ Math.round(userStore.settings.sfxVolume * 100) }}%</span>
                 </div>
-                <input type="range" min="0" max="1" step="0.1" :value="userStore.settings.sfxVolume" @input="updateVolume('sfx', $event.target.value)" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500">
+                <input type="range" min="0" max="1" step="0.1" :value="userStore.settings.sfxVolume"
+                  @input="updateVolume('sfx', $event.target.value)"
+                  class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500">
               </div>
             </div>
           </div>
@@ -183,54 +198,98 @@
             <div class="mb-6">
               <h4 class="font-bold text-gray-600 mb-2 text-sm">优先学习的字</h4>
               <div class="flex flex-wrap gap-2 mb-3">
-                <span
-                  v-for="char in userStore.priorityList"
-                  :key="char"
-                  class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1"
-                >
+                <span v-for="char in userStore.priorityList" :key="char"
+                  class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1">
                   {{ char }}
                   <button @click="removePriority(char)" class="text-yellow-500 hover:text-red-500 ml-1">✕</button>
                 </span>
                 <span v-if="userStore.priorityList.length === 0" class="text-gray-400 text-sm">暂无</span>
               </div>
               <div class="flex gap-2">
-                <input v-model="newPriorityChar" type="text" maxlength="1" placeholder="输入一个汉字" class="flex-1 px-3 py-2 border rounded-lg text-center text-lg">
-                <button @click="addPriority" class="bg-yellow-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-yellow-600">添加</button>
+                <input v-model="newPriorityChar" type="text" maxlength="1" placeholder="输入一个汉字"
+                  class="flex-1 px-3 py-2 border rounded-lg text-center text-lg">
+                <button @click="addPriority"
+                  class="bg-yellow-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-yellow-600">添加</button>
               </div>
             </div>
 
             <!-- 跳过列表 -->
             <div>
-              <h4 class="font-bold text-gray-600 mb-2 text-sm">跳过的字 <span class="font-normal text-gray-400">（太简单不再出现）</span></h4>
+              <h4 class="font-bold text-gray-600 mb-2 text-sm">跳过的字 <span
+                  class="font-normal text-gray-400">（太简单不再出现）</span></h4>
               <div class="flex flex-wrap gap-2 mb-3">
-                <span
-                  v-for="char in userStore.skippedChars"
-                  :key="char"
-                  class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1"
-                >
+                <span v-for="char in userStore.skippedChars" :key="char"
+                  class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1">
                   {{ char }}
                   <button @click="removeSkip(char)" class="text-gray-400 hover:text-red-500 ml-1">✕</button>
                 </span>
-                <span v-if="!userStore.skippedChars || userStore.skippedChars.length === 0" class="text-gray-400 text-sm">暂无</span>
+                <span v-if="!userStore.skippedChars || userStore.skippedChars.length === 0"
+                  class="text-gray-400 text-sm">暂无</span>
               </div>
               <div class="flex gap-2">
-                <input v-model="newSkipChar" type="text" maxlength="1" placeholder="输入一个汉字" class="flex-1 px-3 py-2 border rounded-lg text-center text-lg">
-                <button @click="addSkip" class="bg-gray-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-gray-600">跳过</button>
+                <input v-model="newSkipChar" type="text" maxlength="1" placeholder="输入一个汉字"
+                  class="flex-1 px-3 py-2 border rounded-lg text-center text-lg">
+                <button @click="addSkip"
+                  class="bg-gray-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-gray-600">跳过</button>
               </div>
             </div>
+                      <!-- 自定义生字 -->
+            <div class="mt-6 pt-6 border-t border-gray-100">
+              <h4 class="font-bold text-gray-600 mb-2 text-sm">➕ 添加自定义生字</h4>
+              <p class="text-xs text-gray-400 mb-3">添加课本上的字，系统会自动生成拼音和语音</p>
+              <div class="flex gap-2 mb-2">
+                <input v-model="customChar.char" type="text" maxlength="1" placeholder="汉字" class="w-16 px-3 py-2 border rounded-lg text-center text-lg">
+                <input v-model="customChar.example" type="text" placeholder="组词（如：学校）" class="flex-1 px-3 py-2 border rounded-lg text-sm">
+              </div>
+              <div class="flex gap-2">
+                <input v-model="customChar.distractors" type="text" placeholder="易混字，逗号分隔（如：入,八）" class="flex-1 px-3 py-2 border rounded-lg text-sm">
+                <button
+                  @click="addCustomCharHandler"
+                  :disabled="customCharLoading || !customChar.char"
+                  class="bg-green-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 whitespace-nowrap"
+                >
+                  <span v-if="customCharLoading" class="animate-spin">⏳</span>
+                  {{ customCharLoading ? '生成中' : '添加' }}
+                </button>
+              </div>
+              <div v-if="customCharMsg" class="mt-2 text-sm" :class="customCharError ? 'text-red-500' : 'text-green-600'">
+                {{ customCharMsg }}
+              </div>
+
+              <!-- 已添加的自定义字 -->
+              <div v-if="Object.keys(userStore.customCharacters).length > 0" class="mt-4">
+                <h5 class="text-xs text-gray-500 mb-2">已添加的自定义字：</h5>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    v-for="(data, char) in userStore.customCharacters"
+                    :key="char"
+                    class="bg-green-50 border border-green-200 text-green-700 px-3 py-1 rounded-full text-sm font-bold"
+                  >
+                    {{ char }}
+                    <span class="text-xs text-green-500 ml-1">({{ data.pinyin }})</span>
+                  </span>
+                </div>
+              </div>
+            </div>  
           </div>
 
           <!-- 数据管理 -->
           <div class="bg-white p-6 rounded-2xl shadow-sm border border-red-100">
             <h3 class="text-lg font-bold text-red-500 mb-4">数据管理</h3>
-            <router-link to="/print" class="block w-full text-center py-3 bg-indigo-50 text-indigo-600 border border-indigo-200 rounded-xl font-bold hover:bg-indigo-100 transition mb-4">
+            <router-link to="/print"
+              class="block w-full text-center py-3 bg-indigo-50 text-indigo-600 border border-indigo-200 rounded-xl font-bold hover:bg-indigo-100 transition mb-4">
               🖨️ 生成描红字帖
             </router-link>
             <div class="flex gap-2 mb-4">
-              <button @click="exportData" class="flex-1 py-2 border border-blue-200 text-blue-600 rounded-lg text-sm font-bold hover:bg-blue-50">📤 导出</button>
-              <button @click="importData" class="flex-1 py-2 border border-green-200 text-green-600 rounded-lg text-sm font-bold hover:bg-green-50">📥 导入</button>
+              <button @click="exportData"
+                class="flex-1 py-2 border border-blue-200 text-blue-600 rounded-lg text-sm font-bold hover:bg-blue-50">📤
+                导出</button>
+              <button @click="importData"
+                class="flex-1 py-2 border border-green-200 text-green-600 rounded-lg text-sm font-bold hover:bg-green-50">📥
+                导入</button>
             </div>
-            <button @click="handleReset" class="w-full py-3 bg-red-50 text-red-600 border border-red-200 rounded-xl font-bold hover:bg-red-100 transition">
+            <button @click="handleReset"
+              class="w-full py-3 bg-red-50 text-red-600 border border-red-200 rounded-xl font-bold hover:bg-red-100 transition">
               ⚠️ 重置所有进度
             </button>
           </div>
@@ -241,12 +300,17 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, watch, inject } from 'vue';
 import { useUserStore } from '../stores/user';
-import { authApi, parentApi, progressApi } from '../utils/api';
+import { authApi, parentApi, progressApi, ttsApi } from '../utils/api';
 import LearningChart from '../components/parent/LearningChart.vue';
 
+
+
+
 const userStore = useUserStore();
+// 获取全局登录弹窗
+const loginModal = inject('loginModal');
 
 // ==================== 家长验证 ====================
 const isUnlocked = ref(false);
@@ -283,24 +347,37 @@ const dashboard = ref({
 const dataSource = ref('');
 
 const chartHistory = computed(() => {
-  // 后端返回的历史数据格式转为图表格式
+  // 优先后端补全的历史
+  if (dashboard.value.chart_history && dashboard.value.chart_history.length > 0) {
+    return dashboard.value.chart_history;
+  }
+  // 其次后端 dashboard 里的 recent_history
   if (dashboard.value.recent_history && dashboard.value.recent_history.length > 0) {
     return dashboard.value.recent_history.map(h => ({
-      date: h.date.slice(5), // YYYY-MM-DD → MM-DD
+      date: h.date.slice(5),
       count: h.chars_count,
     }));
   }
-  // 兜底用本地数据
+  // 兜底本地
   return userStore.history;
 });
 
 const loadDashboard = async () => {
-  // 优先从后端加载
   if (userStore.isOnline && authApi.isLoggedIn()) {
     dashboardLoading.value = true;
     try {
-      const data = await parentApi.getDashboard();
-      dashboard.value = data;
+      const [dashData, historyData] = await Promise.all([
+        parentApi.getDashboard(),
+        parentApi.getHistory(7).catch(() => null),
+      ]);
+
+      dashboard.value = dashData;
+
+      // 如果历史接口返回了补全的数据，优先使用
+      if (historyData && historyData.length > 0) {
+        dashboard.value.chart_history = historyData;
+      }
+
       dataSource.value = '☁️ 云端数据';
       dashboardLoading.value = false;
       return;
@@ -310,7 +387,6 @@ const loadDashboard = async () => {
     dashboardLoading.value = false;
   }
 
-  // 兜底用本地数据
   const stats = userStore.statsCount;
   dashboard.value = {
     total_chars: stats.total,
@@ -321,13 +397,13 @@ const loadDashboard = async () => {
     daily_streak: userStore.dailyStreak || 0,
     recent_history: [],
     weak_chars: [],
+    chart_history: null,
   };
   dataSource.value = '📱 本地数据';
 };
 
 // ==================== 登录/注册 ====================
 const userProfile = ref(null);
-const form = ref({ username: '', password: '' });
 
 const checkLoginStatus = async () => {
   if (authApi.isLoggedIn()) {
@@ -346,43 +422,23 @@ const checkLoginStatus = async () => {
   }
 };
 
-const handleRegister = async () => {
-  if (!form.value.username || !form.value.password) {
-    alert('请填写用户名和密码');
-    return;
-  }
-  try {
-    await authApi.register(form.value.username, form.value.password, userStore.info.name);
-    await checkLoginStatus();
-    userStore.isOnline = true;
-    loadDashboard();
-    alert('注册成功！');
-  } catch (e) {
-    alert('注册失败: ' + (e.response?.data?.detail || e.message));
-  }
+const handleRegister = () => {
+  loginModal.open('register');
 };
 
-const handleLogin = async () => {
-  if (!form.value.username || !form.value.password) {
-    alert('请填写用户名和密码');
-    return;
-  }
-  try {
-    await authApi.login(form.value.username, form.value.password);
-    await checkLoginStatus();
-    userStore.isOnline = true;
-    loadDashboard();
-    alert('登录成功！');
-  } catch (e) {
-    alert('登录失败: ' + (e.response?.data?.detail || e.message));
-  }
+const handleLogin = () => {
+  loginModal.open('login');
 };
 
-const handleLogout = () => {
+const handleLogout = async () => {
+  if (!confirm('确定要退出登录吗？')) return;
   authApi.logout();
   userProfile.value = null;
-  userStore.isOnline = false;
-  loadDashboard(); // 切回本地数据
+
+  // ★ 切换账号：清空 store，重新从本地加载
+  await userStore.switchAccount();
+
+  loadDashboard();
 };
 
 // ==================== 设置 (A2) ====================
@@ -422,27 +478,12 @@ const addToPriority = (char) => {
 const addSkip = () => {
   const char = newSkipChar.value.trim();
   if (!char) return;
-  if (!userStore.skippedChars) userStore.skippedChars = [];
-  if (!userStore.skippedChars.includes(char)) {
-    userStore.skippedChars.push(char);
-    userStore.save();
-    // 在线同步
-    if (userStore.isOnline && authApi.isLoggedIn()) {
-      progressApi.updateSkip('add', char).catch(() => {});
-    }
-  }
+  userStore.addSkipChar(char);
   newSkipChar.value = '';
 };
 
 const removeSkip = (char) => {
-  const idx = userStore.skippedChars.indexOf(char);
-  if (idx > -1) {
-    userStore.skippedChars.splice(idx, 1);
-    userStore.save();
-    if (userStore.isOnline && authApi.isLoggedIn()) {
-      progressApi.updateSkip('remove', char).catch(() => {});
-    }
-  }
+  userStore.removeSkipChar(char);
 };
 
 // ==================== 数据管理 ====================
@@ -489,13 +530,79 @@ const formatTime = (timeStr) => {
 };
 
 // ==================== 生命周期 ====================
-onMounted(() => {
-  checkLoginStatus();
+onMounted(async () => {
+  await checkLoginStatus();
 });
+
+// 监听 isOnline 变化 + isLoaded 变化，登录/切换账号后刷新
+watch(
+  () => [userStore.isOnline, userStore.isLoaded],
+  async ([online, loaded]) => {
+    if (loaded && isUnlocked.value) {
+      await checkLoginStatus();
+      await loadDashboard();
+    }
+  }
+);
+
+// ==================== 自定义字 ====================
+const customChar = ref({ char: '', example: '', distractors: '' });
+const customCharLoading = ref(false);
+const customCharMsg = ref('');
+const customCharError = ref(false);
+
+const addCustomCharHandler = async () => {
+  const char = customChar.value.char.trim();
+  if (!char) return;
+
+  customCharLoading.value = true;
+  customCharMsg.value = '';
+  customCharError.value = false;
+
+  try {
+    const distractors = customChar.value.distractors
+      .split(/[,，、]/)
+      .map(s => s.trim())
+      .filter(Boolean);
+
+    const result = await ttsApi.createChar(char, customChar.value.example, distractors);
+
+    // 保存到 store
+    userStore.addCustomChar(result);
+
+    // 也加入优先列表
+    userStore.addPriorityChar(char);
+
+    customCharMsg.value = `✅ "${char}" 添加成功！拼音: ${result.pinyin}`;
+    customChar.value = { char: '', example: '', distractors: '' };
+  } catch (e) {
+    customCharError.value = true;
+    customCharMsg.value = '❌ 添加失败: ' + (e.response?.data?.detail || e.message);
+  } finally {
+    customCharLoading.value = false;
+  }
+};
+
 </script>
 
 <style scoped>
-.font-kaiti { font-family: "KaiTi", "STKaiti", serif; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-.animate-fade-in { animation: fadeIn 0.3s ease-out; }
+.font-kaiti {
+  font-family: "KaiTi", "STKaiti", serif;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
 </style>

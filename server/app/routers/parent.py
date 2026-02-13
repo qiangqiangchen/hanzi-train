@@ -156,3 +156,45 @@ def download_save(
     if not backup or not backup.save_data:
         raise HTTPException(status_code=404, detail="No save data")
     return SaveDownload(data=backup.save_data, updated_at=backup.updated_at)
+
+
+
+@router.get("/history")
+def get_learning_history(
+    days: int = 7,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """获取近N天的学习历史"""
+    from datetime import timedelta
+
+    history = (
+        db.query(LearningHistory)
+        .filter(LearningHistory.user_id == user.id)
+        .order_by(LearningHistory.date.desc())
+        .limit(days)
+        .all()
+    )
+    history.reverse()
+
+    # 补全没有数据的日期
+    result = []
+    today = datetime.utcnow().date()
+    for i in range(days - 1, -1, -1):
+        d = today - timedelta(days=i)
+        date_str = d.strftime("%Y-%m-%d")
+        found = next((h for h in history if h.date == date_str), None)
+        if found:
+            result.append({
+                "date": date_str[5:],  # MM-DD
+                "count": found.chars_count,
+                "sessions": found.sessions_count,
+            })
+        else:
+            result.append({
+                "date": date_str[5:],
+                "count": 0,
+                "sessions": 0,
+            })
+
+    return result
