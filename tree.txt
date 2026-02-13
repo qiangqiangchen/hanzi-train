@@ -1,0 +1,197 @@
+hanzi_train
+├── dev.md
+├── index.html
+├── package.json
+├── package-lock.json
+├── postcss.config.js
+├── public
+│   ├── audio
+│   │   ├── chars
+│   │   │   ├── 本.mp3
+│   │   │   ├── 本_question.mp3
+│   │   │   ├── 不.mp3
+│   │   │   ├── 不_question.mp3
+│   │   │   ├── 作.mp3
+│   │   │   └── 作_question.mp3
+│   │   ├── sfx
+│   │   │   ├── achievement.mp3
+│   │   │   ├── attach.mp3
+│   │   │   ├── correct.mp3
+│   │   │   ├── great.mp3
+│   │   │   ├── try_again.mp3
+│   │   │   ├── whistle.mp3
+│   │   │   ├── win.mp3
+│   │   │   └── wrong.mp3
+│   │   └── story
+│   │       ├── story_1_0.mp3
+│   │       ├── story_11_0.mp3
+│   │       ├── story_11_1.mp3
+│   │       ├── story_1_1.mp3
+│   │       ├── story_1_2.mp3
+│   │       ├── story_1_3.mp3
+│   │       ├── story_21_0.mp3
+│   │       └── story_21_1.mp3
+│   ├── data
+│   │   ├── chars_detail_0.json
+│   │   ├── chars_detail_10.json
+│   │   ├── chars_detail_11.json
+│   │   ├── chars_detail_12.json
+│   │   ├── chars_detail_13.json
+│   │   ├── chars_detail_1.json
+│   │   ├── chars_detail_2.json
+│   │   ├── chars_detail_3.json
+│   │   ├── chars_detail_4.json
+│   │   ├── chars_detail_5.json
+│   │   ├── chars_detail_6.json
+│   │   ├── chars_detail_7.json
+│   │   ├── chars_detail_8.json
+│   │   └── chars_detail_9.json
+│   ├── icon-128.png
+│   ├── icon-512.png
+│   ├── images
+│   │   ├── achievements
+│   │   │   ├── char_100.png
+│   │   │   ├── first_blood.png
+│   │   │   ├── streak_10.png
+│   │   │   ├── streak_5.png
+│   │   │   └── train_master.png
+│   │   ├── scenes
+│   │   │   ├── city.png
+│   │   │   ├── farm.png
+│   │   │   └── space.png
+│   │   ├── trains
+│   │   │   ├── diesel_head.svg
+│   │   │   ├── electric_head.svg
+│   │   │   ├── parts
+│   │   │   │   ├── cargo_car.svg
+│   │   │   │   ├── coal_car.svg
+│   │   │   │   ├── passenger_car.svg
+│   │   │   │   └── tank_car.svg
+│   │   │   └── steam_head.svg
+│   │   └── ui
+│   │       └── map_icon.png
+│   ├── manifest.json
+│   ├── pwa-192x192.png
+│   ├── pwa-512x512.png
+│   └── vite.svg
+├── README.md
+├── scripts
+│   ├── build_3000.py
+│   ├── build_confusion.py
+│   ├── build_dictionary.py
+│   ├── build_final_confusion.py
+│   ├── generate_audio_bulk.py
+│   ├── generate_audio.py
+│   ├── generate_story_audio.py
+│   └── split_json.py
+├── server
+│   ├── app
+│   │   ├── __pycache__
+│   │   │   ├── auth.cpython-312.pyc
+│   │   │   ├── database.cpython-312.pyc
+│   │   │   ├── __init__.cpython-312.pyc
+│   │   │   ├── main.cpython-312.pyc
+│   │   │   ├── models.cpython-312.pyc
+│   │   │   └── schemas.cpython-312.pyc
+│   │   └── routers
+│   │       └── __pycache__
+│   │           ├── game.cpython-312.pyc
+│   │           ├── __init__.cpython-312.pyc
+│   │           ├── parent.cpython-312.pyc
+│   │           └── users.cpython-312.pyc
+│   ├── main.py
+│   ├── sql_app.db
+│   └── static
+│       └── audio
+│           ├── de86c3292d37588999ef384f5651936b.mp3
+│           └── scenario
+│               ├── 07d31dff5b986a88c8ac7b0e24c161d0.mp3
+│               ├── 3c8566fefb1958b6467d0be3095ae76d.mp3
+│               ├── 45c1ee8176cacbbeac90bdf2b59a10c8.mp3
+│               ├── 526518384665d23127e5cef72ba485a7.mp3
+│               ├── 7c1d19ea6019609be76791de34641108.mp3
+│               ├── 82dcee0c359050b06889adb6c55bb9d9.mp3
+│               ├── 85fcb16e5917340f7d407e840987c6fe.mp3
+│               ├── 86278496aaad5c5763241035c1843d70.mp3
+│               ├── 869d7cc88e083e446ac94ce790da71a0.mp3
+│               ├── 9d194d691763824a4338d0a055ecd855.mp3
+│               ├── a65a268755c4593cf1c20aa80fa87cae.mp3
+│               ├── a9da05cddd4e8187523e0fbdda8e0319.mp3
+│               ├── b2e7478d9d46a0f8973c520caaf9843f.mp3
+│               └── de3dda453fdb63fa08ca46be1bcfc1ab.mp3
+├── sql_app.db
+├── src
+│   ├── App.vue
+│   ├── assets
+│   │   └── vue.svg
+│   ├── components
+│   │   ├── common
+│   │   │   ├── AchievementToast.vue
+│   │   │   ├── CountUp.vue
+│   │   │   ├── DailyStreak.vue
+│   │   │   ├── HanziWriter.vue
+│   │   │   ├── InstallPrompt.vue
+│   │   │   ├── OrientationCheck.vue
+│   │   │   ├── StoryOverlay.vue
+│   │   │   └── TutorialOverlay.vue
+│   │   ├── game
+│   │   │   ├── Carriage.vue
+│   │   │   ├── TrainHead.vue
+│   │   │   └── TrainPart.vue
+│   │   ├── HelloWorld.vue
+│   │   └── parent
+│   │       └── LearningChart.vue
+│   ├── data
+│   │   ├── achievements.json
+│   │   ├── chapters.json
+│   │   ├── characters_bak.json
+│   │   ├── characters.json
+│   │   ├── chars_index.json
+│   │   ├── confusion_map.json
+│   │   ├── levels.json
+│   │   ├── story.json
+│   │   ├── train_parts.json
+│   │   └── trains.json
+│   ├── main.js
+│   ├── router
+│   │   └── index.js
+│   ├── stores
+│   │   ├── game.js
+│   │   └── user.js
+│   ├── style.css
+│   ├── utils
+│   │   ├── api.js
+│   │   ├── audio.js
+│   │   ├── db.js
+│   │   ├── effects.js
+│   │   ├── preload.js
+│   │   └── storage.js
+│   └── views
+│       ├── Achievements.vue
+│       ├── Game.vue
+│       ├── Garage.vue
+│       ├── Home.vue
+│       ├── ParentSettings.vue
+│       ├── Parent.vue
+│       ├── Print.vue
+│       ├── Reading.vue
+│       └── Result.vue
+├── static
+│   └── audio
+│       ├── 74f4addd38fa9897322f0d0e395eb342.mp3
+│       ├── 74f4addd38fa9897322f0d0e395eb342_q.mp3
+│       ├── a3cac2e00861f19990755dead51f1f0b.mp3
+│       ├── acf718577cbf65991472ad3258e35a75.mp3
+│       ├── acf718577cbf65991472ad3258e35a75_q.mp3
+│       ├── ce6f2da084563cb94aa81c67df97e4bc.mp3
+│       ├── ce6f2da084563cb94aa81c67df97e4bc_q.mp3
+│       ├── e22d012e41d248b9014ad22fee1c976d.mp3
+│       ├── e22d012e41d248b9014ad22fee1c976d_q.mp3
+│       └── scenario
+│           ├── 802b3f136bc47ac72fcbf44d9161b8c5.mp3
+│           ├── b59aae0ffe9a7c77582ccbe6cd7947c3.mp3
+│           ├── d4e80abde3b4505f2276167606d87ae5.mp3
+│           └── ffd24c9e7d0c08196b575769d4b12fd1.mp3
+├── tailwind.config.js
+└── vite.config.js
+

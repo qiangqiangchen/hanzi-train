@@ -1,0 +1,34 @@
+# 系统隐藏文件
+.*
+!.gitignore
+!.git/
+.DS_Store
+.bash_history
+
+# 项目构建产物
+target/
+dist/
+build/
+__pycache__/
+*.pyc
+
+# 依赖目录
+node_modules/
+venv/
+env/
+vendor/
+
+# 敏感/配置文件
+config.ini
+.env
+*.log
+*.swp
+
+# IDE配置
+.idea/
+.vscode/
+
+public/audio/chars/
+public/audio/story/
+scripts/python/
+
