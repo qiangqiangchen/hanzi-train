@@ -411,14 +411,17 @@ const checkLoginStatus = async () => {
       const me = await authApi.getMe();
       userProfile.value = me;
       userStore.isOnline = true;
+      userStore.isLoggedIn = true;
     } catch (e) {
       console.warn('[Parent] Login check failed:', e.message);
       userProfile.value = null;
       userStore.isOnline = false;
+      userStore.isLoggedIn = false;
     }
   } else {
     userProfile.value = null;
     userStore.isOnline = false;
+    userStore.isLoggedIn = false;
   }
 };
 
@@ -434,10 +437,7 @@ const handleLogout = async () => {
   if (!confirm('确定要退出登录吗？')) return;
   authApi.logout();
   userProfile.value = null;
-
-  // ★ 切换账号：清空 store，重新从本地加载
   await userStore.switchAccount();
-
   loadDashboard();
 };
 

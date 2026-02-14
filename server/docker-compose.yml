@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./static:/app/static
+      - ./data:/app/data
+      - ./sql_app.db:/app/sql_app.db
+    env_file:
+      - .env
+    environment:
+      - ENV=production
+    restart: unless-stopped
+
+  # 可选：如果要用 PostgreSQL
+  # db:
+  #   image: postgres:16-alpine
+  #   environment:
+  #     POSTGRES_USER: hanzi
+  #     POSTGRES_PASSWORD: your_password
+  #     POSTGRES_DB: hanzi_train
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+
+# volumes:
+#   postgres_data:

@@ -5,13 +5,25 @@ import achievementsData from '../data/achievements.json';
 import { audio } from '../utils/audio';
 import charsIndexRaw from '../data/chars_index.json';
 import trainPartsData from '../data/train_parts.json';
-import api from '../utils/api';
 import { authApi, progressApi, parentApi, gameApi, achievementsApi } from '../utils/api';
+import api from '../utils/api';
+
+
+function mergeArrays(local, server) {
+  return [...new Set([...(local || []), ...(server || [])])];
+}
+
+function newerDate(dateA, dateB) {
+  if (!dateA) return dateB;
+  if (!dateB) return dateA;
+  return dateA > dateB ? dateA : dateB;
+}
 
 function getDefaultState() {
   return {
     isLoaded: false,
     isOnline: false,
+    isLoggedIn: false,
     pendingSyncCount: 0,
 
     info: { name: '小小探险家', avatar: 'default' },
@@ -97,15 +109,14 @@ export const useUserStore = defineStore('user', {
     },
 
     async _doInit() {
-      // 设置 DB 前缀（账号隔离）
       const userId = authApi.getUserId();
       db.setUser(userId);
 
-      // 1. 加载本地数据
+      this.isLoggedIn = authApi.isLoggedIn();
+
       await this.loadLocal();
 
-      // 2. 已登录 → 从后端加载并合并
-      if (authApi.isLoggedIn()) {
+      if (this.isLoggedIn) {
         try {
           await this.loadAndMergeFromServer();
           this.isOnline = true;
@@ -126,7 +137,7 @@ export const useUserStore = defineStore('user', {
       }
 
       this.isLoaded = true;
-      console.log('[UserStore] ✅ Init complete, online:', this.isOnline, 'userId:', userId);
+      console.log('[UserStore] ✅ Init complete, online:', this.isOnline, 'loggedIn:', this.isLoggedIn, 'userId:', userId);
     },
 
     /**
@@ -134,28 +145,24 @@ export const useUserStore = defineStore('user', {
      */
     async switchAccount() {
       console.log('[UserStore] Switching account...');
-
-      // 清空离线队列
       await syncQueue.clear();
 
-      // 重置所有 state
       const defaults = getDefaultState();
       Object.keys(defaults).forEach(key => {
         this[key] = defaults[key];
       });
       this.charsDetailCache = {};
 
-      // 用新账号的 prefix 重新初始化
       await this.forceReInit();
+      console.log('[UserStore] Switch complete, online:', this.isOnline, 'loggedIn:', this.isLoggedIn);
     },
-
     // ==================== 网络状态监听 ====================
 
     setupNetworkListener() {
       window.addEventListener('online', async () => {
         console.log('[Network] 🟢 Back online, waiting 2s before sync...');
         await new Promise(resolve => setTimeout(resolve, 2000));
-        if (authApi.isLoggedIn()) {
+        if (this.isLoggedIn) {
           this.isOnline = true;
           await this.replayQueue();
           this.pendingSyncCount = await syncQueue.count();
@@ -188,7 +195,7 @@ export const useUserStore = defineStore('user', {
     },
 
     async apiCall(type, method, url, data = null) {
-      if (this.isOnline && authApi.isLoggedIn()) {
+      if (this.isOnline && this.isLoggedIn) {
         try {
           let res;
           if (method === 'post') res = await api.post(url, data);
@@ -205,13 +212,12 @@ export const useUserStore = defineStore('user', {
             throw e;
           }
         }
-      } else if (authApi.isLoggedIn()) {
+      } else if (this.isLoggedIn) {
         await syncQueue.push(type, method, url, data);
         this.pendingSyncCount = await syncQueue.count();
       }
       return null;
     },
-
     // ==================== 后端加载 + 合并 ====================
 
     async loadFromServer() {
@@ -223,6 +229,7 @@ export const useUserStore = defineStore('user', {
       ]);
       return { profile, progress, chars, settings };
     },
+
 
     async loadAndMergeFromServer() {
       const { profile, progress, chars, settings } = await this.loadFromServer();
@@ -238,13 +245,14 @@ export const useUserStore = defineStore('user', {
           totalStars: Math.max(this.progress.totalStars, progress.total_stars || 0),
           totalScore: Math.max(this.progress.totalScore, progress.total_score || 0),
         };
-        this.trains = this._mergeArrays(this.trains, progress.unlocked_trains || ['steam']);
+        // ★ 使用独立函数
+        this.trains = mergeArrays(this.trains, progress.unlocked_trains || ['steam']);
         this.currentTrainId = progress.current_train_id || this.currentTrainId || 'steam';
-        this.unlockedParts = this._mergeArrays(this.unlockedParts, progress.unlocked_parts || []);
+        this.unlockedParts = mergeArrays(this.unlockedParts, progress.unlocked_parts || []);
         this.equippedParts = progress.equipped_parts || this.equippedParts || [];
         this.dailyStreak = Math.max(this.dailyStreak || 0, progress.daily_streak || 0);
-        this.lastPlayDate = this._newerDate(this.lastPlayDate, progress.last_play_date);
-        this.checkInDates = this._mergeArrays(this.checkInDates || [], progress.check_in_dates || []);
+        this.lastPlayDate = newerDate(this.lastPlayDate, progress.last_play_date);
+        this.checkInDates = mergeArrays(this.checkInDates || [], progress.check_in_dates || []);
         this.priorityList = progress.priority_list || this.priorityList || [];
         this.skippedChars = progress.skipped_chars || this.skippedChars || [];
         this.customConfigs = { ...this.customConfigs, ...(progress.custom_configs || {}) };
@@ -292,15 +300,13 @@ export const useUserStore = defineStore('user', {
         audio.setVolume(this.settings.bgmVolume, this.settings.sfxVolume);
       }
 
+      // 成就合并
       try {
         const serverAchievements = await achievementsApi.getAll();
         const serverIds = serverAchievements.map(a => a.achievement_id);
         const localIds = this.achievements || [];
-
-        // 合并：取并集
         this.achievements = [...new Set([...localIds, ...serverIds])];
 
-        // 如果本地有后端没有的，同步上去
         const toSync = localIds.filter(id => !serverIds.includes(id));
         if (toSync.length > 0) {
           achievementsApi.sync(toSync).catch(() => {});
@@ -314,6 +320,7 @@ export const useUserStore = defineStore('user', {
       this.lastSyncTime = Date.now();
       this.saveLocal();
     },
+
 
     // ==================== 本地加载/保存 ====================
 
@@ -397,7 +404,7 @@ export const useUserStore = defineStore('user', {
       db.set('user_scenario_cache', this.scenarioCache);
       db.set('user_last_sync_time', this.lastSyncTime);
     },
-
+    
     save() {
       this.saveLocal();
     },
@@ -559,7 +566,7 @@ export const useUserStore = defineStore('user', {
     // ==================== 复习列表 ====================
 
     async fetchReviewList() {
-      if (this.isOnline && authApi.isLoggedIn()) {
+      if (this.isOnline && this.isLoggedIn) {  // ★ 改这里
         try {
           const res = await progressApi.getReviewList();
           return res.chars || [];
@@ -675,18 +682,25 @@ export const useUserStore = defineStore('user', {
         this.save();
         this.newAchievementsQueue.push(...newUnlocked);
 
-        // ★ 直接同步解锁的成就 ID 到后端
-        if (this.isOnline && authApi.isLoggedIn()) {
-          const newIds = newUnlocked.map(a => a.id);
-          achievementsApi.sync(newIds).catch(e => {
-            console.warn('[Achievements] Sync failed, queuing:', e.message);
-            // 失败时加入离线队列
-            syncQueue.push('achievements-sync', 'post', '/api/achievements/sync', newIds);
+        const newIds = newUnlocked.map(a => a.id);
+        console.log('[Achievements] New unlocked:', newIds);
+        console.log('[Achievements] isOnline:', this.isOnline, 'isLoggedIn:', authApi.isLoggedIn());
+
+        if (this.isOnline && this.isLoggedIn) {  // ★ 改这里
+          console.log('[Achievements] Syncing to server:', newIds);
+          achievementsApi.sync(newIds)
+            .then(res => console.log('[Achievements] ✅ Synced:', res))
+            .catch(e => {
+              console.warn('[Achievements] ❌ Sync failed, queuing:', e.message);
+              syncQueue.push('achievements-sync', 'post', '/api/achievements/sync', {
+                achievement_ids: newIds,
+              });
+            });
+        } else if (this.isLoggedIn) {  // ★ 改这里
+          console.log('[Achievements] Offline, queuing:', newIds);
+          syncQueue.push('achievements-sync', 'post', '/api/achievements/sync', {
+            achievement_ids: newIds,
           });
-        } else if (authApi.isLoggedIn()) {
-          // 离线时加入队列
-          const newIds = newUnlocked.map(a => a.id);
-          syncQueue.push('achievements-sync', 'post', '/api/achievements/sync', newIds);
         }
 
         return newUnlocked;

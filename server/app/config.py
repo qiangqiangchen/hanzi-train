@@ -4,6 +4,8 @@ import json
 
 
 class Settings(BaseSettings):
+    ENV: str = "development"
+
     # 安全
     SECRET_KEY: str = "SECRET_KEY_PLEASE_CHANGE"
     ALGORITHM: str = "HS256"
@@ -32,6 +34,10 @@ class Settings(BaseSettings):
             return json.loads(self.CORS_ORIGINS)
         except Exception:
             return ["*"]
+
+    @property
+    def is_production(self) -> bool:
+        return self.ENV == "production"
 
     class Config:
         env_file = ".env"

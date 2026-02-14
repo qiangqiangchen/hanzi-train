@@ -508,7 +508,6 @@ export const useGameStore = defineStore('game', () => {
     isGameActive.value = false;
     isProcessing.value = false;
 
-    // 收集答题结果
     const results = Object.entries(sessionRecords.value).map(([char, isCorrect]) => ({
       char,
       isCorrect
@@ -529,7 +528,6 @@ export const useGameStore = defineStore('game', () => {
       carriages: JSON.parse(JSON.stringify(collectedCarriages.value))
     };
 
-    // 构造游戏会话数据
     const sessionData = {
       level_id: String(currentLevelConfig.value.levelId),
       score: score.value,
@@ -540,14 +538,17 @@ export const useGameStore = defineStore('game', () => {
       char_results: results,
     };
 
-    // ★ 核心：调用 syncAfterGame 同步到后端
+    // ★ 先同步数据，再检查成就（确保 progress 已更新）
     userStore.syncAfterGame(
       currentLevelConfig.value.levelId,
       stars,
       score.value,
       results,
       sessionData
-    );
+    ).then(() => {
+      // 数据同步完成后再检查成就
+      userStore.checkAchievements({ streak: streak.value });
+    });
 
     // 移除优先字
     collectedCarriages.value.forEach(item => {
@@ -556,7 +557,6 @@ export const useGameStore = defineStore('game', () => {
       }
     });
 
-    userStore.checkAchievements();
     router.replace('/result');
   }
 
